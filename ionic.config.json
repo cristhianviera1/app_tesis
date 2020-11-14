@@ -1,0 +1,7 @@
+{
+  "name": "app_tesis",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}

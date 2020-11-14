@@ -1,0 +1,15 @@
+.vertical-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+.center {
+    width: 700px ;
+    margin-left: auto ;
+    margin-right: auto ;
+}
+
+

@@ -1,25 +1,30 @@
-import React from 'react';
-import {ApplicationProvider, IconRegistry,} from '@ui-kitten/components';
-import {EvaIconsPack} from '@ui-kitten/eva-icons';
-import * as eva from '@eva-design/eva';
-import Routes from "./components/routes/Routes";
-import { setLocale } from "yup";
+import React, {FunctionComponent} from 'react';
+import {IonApp} from '@ionic/react';
 
-export default (): React.ReactFragment => (
-    <>
-        <IconRegistry icons={EvaIconsPack}/>
-        <ApplicationProvider {...eva} theme={eva.light}>
-            <Routes />
-        </ApplicationProvider>
-    </>
+/* Core CSS required for Ionic components to work properly */
+import '@ionic/react/css/core.css';
+
+/* Basic CSS for apps built with Ionic */
+import '@ionic/react/css/normalize.css';
+import '@ionic/react/css/structure.css';
+import '@ionic/react/css/typography.css';
+
+/* Optional CSS utils that can be commented out */
+import '@ionic/react/css/padding.css';
+import '@ionic/react/css/float-elements.css';
+import '@ionic/react/css/text-alignment.css';
+import '@ionic/react/css/text-transformation.css';
+import '@ionic/react/css/flex-utils.css';
+import '@ionic/react/css/display.css';
+
+/* Theme variables */
+import './theme/variables.css';
+import Routes from "./components/routes/Routes";
+
+const App: FunctionComponent = () => (
+    <IonApp>
+        <Routes />
+    </IonApp>
 );
-setLocale({
-    mixed:{
-        required: "El campo es requerido"
-    },
-    string:{
-        min: "Mínimo ${min} caracteres",
-        max: "Máximo ${max} caracteres",
-        email: "Ingrese email inválido"
-    }
-})
+
+export default App;

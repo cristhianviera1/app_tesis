@@ -1,0 +1,12 @@
+.chat-container {
+    display: flex;
+    width: 100%;
+    align-self: end;
+    margin: 2%;
+}
+
+.chat-item {
+    border-radius: 0px 20px 20px 20px;
+    background-color: #2dd36f!important;
+    background: #3a7be0;
+}

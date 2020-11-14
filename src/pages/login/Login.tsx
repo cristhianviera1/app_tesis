@@ -1,107 +1,42 @@
-import {SafeAreaView, StyleSheet, TouchableWithoutFeedback} from "react-native";
-import React, {useState} from "react";
-import {Button, Card, Icon, Input} from "@ui-kitten/components";
-import {Controller, useForm} from "react-hook-form";
-import normalize from 'react-native-normalize';
-import * as yup from 'yup';
-import {yupResolver} from '@hookform/resolvers/yup';
-import axios from 'axios';
-/*import {PUBLIC_URL} from "react-native-dotenv"*/
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import {FunctionComponent} from "react";
+import React, { useState }  from 'react';
+import {
+    IonButton,
+    IonCard,
+    IonCardContent,
+    IonCardHeader,
+    IonCardTitle,
+    IonItem,
+    IonLabel,
+    IonInput,
+    IonHeader, IonToolbar, IonTitle, IonContent, IonPage
+} from '@ionic/react';
 
-interface LoginValues {
-    email: string;
-    password: string;
-}
-
-const Login = () => {
-    const [secureTextEntry, setTextEntry] = useState<boolean>(true)
-    const [loading, setLoading] = useState<boolean>(false);
-    const validationSchema = yup.object().shape({
-        email: yup.string().email().required(),
-        password: yup.string().required()
-    })
-    const {control, errors, handleSubmit, watch} = useForm<LoginValues>({
-        resolver: yupResolver(validationSchema),
-        defaultValues: {
-            email: '',
-            password: ''
-        }
-    })
-
-    const onSubmit = (data: LoginValues) => {
-        setLoading(true)
-        axios.post('http://localhost:3000/' + "auth/sign-in", data)
-            .then(({data}) => {
-                console.log(data)
-                AsyncStorage.setItem('token', data?.token)
-            })
-            .catch(() => setLoading(false))
-    }
+const Login: FunctionComponent = () => {
+    const [text, setText] = useState<string>();
 
     return (
-        <SafeAreaView style={styles.container}>
-            <Card style={styles.card}>
-                <Controller
-                    name={'email'}
-                    control={control}
-                    render={({onBlur, onChange, value}) => (
-                        <Input
-                            label={'Correo electrónico'}
-                            value={value}
-                            onBlur={onBlur}
-                            status={errors.email && 'danger'}
-                            style={styles.input}
-                            onChangeText={(text) => onChange(text)}
-                            caption={errors.email?.message && String(errors.email?.message)}
-                        />
-                    )}
-                />
-                <Controller
-                    name={'password'}
-                    control={control}
-                    render={({onBlur, onChange, value}) => (
-                        <Input
-                            label={'Contraseña'}
-                            value={value}
-                            onBlur={onBlur}
-                            style={styles.input}
-                            status={errors.password && 'danger'}
-                            onChangeText={(text) => onChange(text)}
-                            caption={errors.password?.message}
-                            secureTextEntry={secureTextEntry}
-                            accessoryRight={(props: any) =>
-                                <TouchableWithoutFeedback onPress={() => setTextEntry(!secureTextEntry)}>
-                                    <Icon {...props} name={secureTextEntry ? 'eye-off' : 'eye'}/>
-                                </TouchableWithoutFeedback>
-                            }
-                        />
-                    )}
+        <IonCard className="vertical-center">
+            <IonCardHeader>
+                <img width="430" height="280" src="https://scontent.fuio1-1.fna.fbcdn.net/v/t1.0-9/58375447_2373798766274390_1995584557549617152_n.png?_nc_cat=106&ccb=2&_nc_sid=09cbfe&_nc_eui2=AeEaYPjcb-Dkxmmvbo3caUswaaNmHV_PxpFpo2YdX8_GkVUuV0VVczY_Jt2ON4p2eyMWn7xajqQBrS8klcaTF95_&_nc_ohc=1_0e9f0H4kAAX_YrfTG&_nc_ht=scontent.fuio1-1.fna&oh=b2b3cc618b9b657b1f307e781c13d8d6&oe=5FC4B25B"/>
+                    <IonCardTitle>Login</IonCardTitle>
 
-                />
-                <Button
-                    status="primary"
-                    onPress={handleSubmit(onSubmit)}
+            </IonCardHeader>
+            <IonCardContent >
+                <IonItem>
+                    <IonLabel position="floating">Email</IonLabel>
+                    <IonInput className="input-register" value={text} onIonChange={e => setText(e.detail.value!)} clearInput/>
+                </IonItem>
+                <IonItem>
+                    <IonLabel position="floating">Contraseña</IonLabel>
+                    <IonInput className="input-register" value={text} onIonChange={e => setText(e.detail.value!)} clearInput/>
+                </IonItem>
+                <IonButton href="/productos" expand="block">Sign in</IonButton>
+                <IonButton href="/registro" expand="block">Registrate</IonButton>
+            </IonCardContent>
 
-                    size={'medium'}
-                >
-                    Iniciar Sesión
-                </Button>
-            </Card>
-        </SafeAreaView>
+        </IonCard>
     );
-}
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
-    },
-    card: {
-        width: normalize(300),
-    },
-    input: {
-        marginBottom: normalize(10)
-    }
-})
+};
+
 export default Login;
