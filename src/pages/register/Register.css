@@ -4,13 +4,13 @@
 }
 
 .vertical-center {
-    display: table;
-    margin: 0 auto;
-
+    display: flex;
+    justify-content: center;
+    text-align: center;
 }
 
 .center {
-    width: 700px ;
+
     margin-left: auto ;
     margin-right: auto ;
 }

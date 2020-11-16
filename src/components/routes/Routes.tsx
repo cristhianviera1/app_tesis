@@ -11,6 +11,7 @@ import ChatBubble from "../chat/ChatBubble";
 import Register from "../../pages/register/Register"
 import Form from "../../pages/form/Form"
 import Cart from "../../pages/cart/Cart"
+import ProductView from "../../pages/products/ProductView";
 
 const Routes: FunctionComponent = () => {
     return (
@@ -25,6 +26,7 @@ const Routes: FunctionComponent = () => {
                 <Route path="/registro" component={Register} exact={true}/>
                 <Route path="/formulario" component={Form} exact={true}/>
                 <Route path="/carrito" component={Cart} exact={true}/>
+                <Route path="/productodetalle" component={ProductView} exact={true}/>
             </IonRouterOutlet>
         </IonReactRouter>
     );

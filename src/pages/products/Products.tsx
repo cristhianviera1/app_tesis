@@ -25,6 +25,7 @@ const Products: FunctionComponent = () => {
                     image={"https://www.kimirina.org/images/kimirina/servicios/hazte_la_prueba.png"}
                     description={"Corporación Kimirina cuenta con un equipo de promotores debidamente capacitados y habilitados en la prestación de la realización de las pruebas rápidas de VIH por parte del Ministerio de Salud Pública y en la vinculación de las personas conpruebas de tamizaje con resultado Reactivo y/o positivo de VIH a las Unidades de Atención Integral en Salud (UAIS) para su atención, cuidado y tratamiento de la infección por el VIH."}
                     price={"$20"}
+
                 />
             </IonContent>
         </Layout>

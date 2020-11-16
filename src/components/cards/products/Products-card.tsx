@@ -11,7 +11,7 @@ export interface ProductsCardInfo {
 
 const ProductsCard: FunctionComponent<ProductsCardInfo> = ({title, image, description, price}) => {
     return (
-        <IonCard className={"product-card"}>
+        <IonCard className={"product-card"} href={"/productodetalle"}>
             <IonCardHeader>
                 <img width="100%" height="100%" src={image}/>
                 <IonCardSubtitle>{price}</IonCardSubtitle>
