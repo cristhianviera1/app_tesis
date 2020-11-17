@@ -1,4 +1,4 @@
-import React, {FunctionComponent, useState} from 'react';
+import React, {FunctionComponent} from 'react';
 import {
     IonAvatar,
     IonCard,
@@ -15,9 +15,11 @@ import {
 import './Profile.css';
 import Layout from "../../components/layout/Layout";
 import {key, mail, repeat, thumbsUp} from 'ionicons/icons';
+import {useHistory} from "react-router-dom";
 
 
 const Profile: FunctionComponent = () => {
+    const history = useHistory()
     return (
         <Layout>
             <IonHeader>
@@ -25,7 +27,7 @@ const Profile: FunctionComponent = () => {
                     <IonTitle>Perfil</IonTitle>
                 </IonToolbar>
             </IonHeader>
-            <IonContent >
+            <IonContent>
                 <IonCard>
                     <IonAvatar className="center" style={{
                         width: "30%",
@@ -34,7 +36,7 @@ const Profile: FunctionComponent = () => {
                         <img
                             src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.onlinewebfonts.com%2Fsvg%2Fimg_24787.png&f=1&nofb=1"/>
                     </IonAvatar>
-                    <IonText style={{textAlign:'center'}}>
+                    <IonText style={{textAlign: 'center'}}>
                         <h3>Alanys Rojas</h3>
                     </IonText>
                 </IonCard>
@@ -49,15 +51,14 @@ const Profile: FunctionComponent = () => {
                             <IonIcon icon={key}/>
                             <IonLabel>Cambiar Contraseña</IonLabel>
                         </IonItem>
-                        <IonItem >
+                        <IonItem>
                             <IonIcon icon={repeat}/>
                             <IonLabel>Cambiar correo</IonLabel>
                         </IonItem>
-                        <IonItem href="/formulario">
+                        <IonItem onClick={() => history.push('/form')}>
                             <IonIcon icon={thumbsUp}/>
                             <IonLabel>Ayudanos con la encuesta</IonLabel>
                         </IonItem>
-
 
 
                     </IonList>

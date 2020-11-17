@@ -1,21 +1,19 @@
-import {FunctionComponent} from "react";
+import React, {FunctionComponent} from "react";
 import {
+    IonBackButton,
+    IonButton,
+    IonButtons,
+    IonCard,
+    IonCardContent,
+    IonHeader,
+    IonItem,
+    IonLabel,
     IonList,
     IonListHeader,
-    IonRadioGroup,
-    IonLabel,
-    IonItem,
     IonRadio,
-    IonCardHeader,
-    IonCard,
-    IonCardTitle,
-    IonCardSubtitle,
-    IonCardContent,
-    IonButton,
-    IonToolbar,
-    IonButtons, IonTitle, IonContent, IonHeader, IonBackButton
+    IonRadioGroup,
+    IonToolbar
 } from "@ionic/react";
-import React from "react";
 import './Form.css'
 
 
@@ -25,7 +23,7 @@ const Form: FunctionComponent = () => {
             <IonHeader>
                 <IonToolbar>
                     <IonButtons slot="start">
-                        <IonBackButton defaultHref="/perfil" />
+                        <IonBackButton defaultHref="/profile"/>
                     </IonButtons>
 
                 </IonToolbar>

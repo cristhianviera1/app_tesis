@@ -1,6 +1,6 @@
 import React, {FunctionComponent} from "react";
-import {IonCol, IonFooter, IonGrid, IonPage, IonRow, IonTitle, IonToolbar, IonButton, IonIcon} from "@ionic/react";
-import {bag, notifications, chatbubbles, person} from 'ionicons/icons';
+import {IonButton, IonFooter, IonIcon, IonToolbar} from "@ionic/react";
+import {bag, chatbubbles, notifications, person} from 'ionicons/icons';
 import './Footer.css';
 
 const Footer: FunctionComponent = () => {
@@ -8,16 +8,16 @@ const Footer: FunctionComponent = () => {
         <IonFooter>
             <IonToolbar>
                 <div className="footer-bar">
-                    <IonButton href="/productos" fill="clear" className="btn-color">
+                    <IonButton href="/products" fill="clear" className="btn-color">
                         <IonIcon slot="icon-only" icon={bag}/>
                     </IonButton>
-                    <IonButton href="/noticias" fill="clear" className="btn-color">
+                    <IonButton href="/newness" fill="clear" className="btn-color">
                         <IonIcon slot="icon-only" icon={notifications}/>
                     </IonButton>
                     <IonButton href="/chat" fill="clear" className="btn-color">
                         <IonIcon slot="icon-only" icon={chatbubbles}/>
                     </IonButton>
-                    <IonButton href="/perfil" fill="clear" className="btn-color">
+                    <IonButton href="/profile" fill="clear" className="btn-color">
                         <IonIcon slot="icon-only" icon={person}/>
                     </IonButton>
                 </div>

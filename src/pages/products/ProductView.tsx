@@ -1,17 +1,18 @@
 import React, {FunctionComponent, useState} from 'react';
 import {
-    IonContent,
-    IonHeader,
-    IonPage,
-    IonSearchbar,
-    IonTitle,
-    IonToolbar,
+    IonBackButton,
     IonButton,
-    IonIcon,
-    IonButtons, IonBackButton, IonLabel, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCardContent
+    IonButtons,
+    IonCard,
+    IonCardContent,
+    IonCardHeader,
+    IonCardSubtitle,
+    IonCardTitle,
+    IonHeader,
+    IonLabel,
+    IonToolbar
 } from '@ionic/react';
 import './Products.css';
-import './Products.css'
 
 const ProductView: FunctionComponent = () => {
     const [searchText, setSearchText] = useState('');
@@ -20,7 +21,7 @@ const ProductView: FunctionComponent = () => {
         <IonHeader>
             <IonToolbar>
                 <IonButtons slot="start">
-                    <IonBackButton defaultHref="/productos"/>
+                    <IonBackButton defaultHref="/products"/>
                 </IonButtons>
                 <IonLabel>Prep</IonLabel>
             </IonToolbar>

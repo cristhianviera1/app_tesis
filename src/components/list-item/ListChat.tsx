@@ -1,17 +1,5 @@
 import React, {FunctionComponent} from "react";
-import {
-    IonButton,
-    IonCard,
-    IonCardContent,
-    IonCardHeader,
-    IonCardSubtitle,
-    IonCardTitle,
-    IonLabel,
-    IonList,
-    IonAvatar,
-    IonItem
-} from "@ionic/react";
-import {Redirect} from "react-router";
+import {IonAvatar, IonItem, IonLabel, IonList} from "@ionic/react";
 
 
 export interface ListChatInfo {

@@ -1,5 +1,7 @@
-import React, {FunctionComponent} from 'react';
-import {IonApp} from '@ionic/react';
+import React from 'react';
+import {Redirect, Route} from 'react-router-dom';
+import {IonApp, IonRouterOutlet} from '@ionic/react';
+import {IonReactRouter} from '@ionic/react-router';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -19,11 +21,32 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
-import Routes from "./components/routes/Routes";
+import Login from "./pages/login/Login";
+import Newness from "./pages/newness/Newness";
+import Products from "./pages/products/Products";
+import Chat from "./pages/chat/Chat";
+import Profile from "./pages/profile/Profile";
+import Register from "./pages/register/Register";
+import Form from "./pages/form/Form";
+import Cart from "./pages/cart/Cart";
+import ChatBubble from "./components/chat/ChatBubble";
 
-const App: FunctionComponent = () => (
+const App: React.FC = () => (
     <IonApp>
-        <Routes />
+        <IonReactRouter>
+            <IonRouterOutlet>
+                <Route path="/login" component={Login} exact={true}/>
+                <Route path="/register" component={Register} exact={true}/>
+                <Route path="/newness" component={Newness} exact={true}/>
+                <Route path="/products" component={Products} exact={true}/>
+                <Route path="/chat" component={Chat} exact={true}/>
+                <Route path="/chatdetail" component={ChatBubble} exact={true}/>
+                <Route path="/profile" component={Profile} exact={true}/>
+                <Route path="/form" component={Form} exact={true}/>
+                <Route path="/cart" component={Cart} exact={true}/>
+                <Route path={'/'} render={() => <Redirect to={'/login'}/>} exact={true}/>
+            </IonRouterOutlet>
+        </IonReactRouter>
     </IonApp>
 );
 

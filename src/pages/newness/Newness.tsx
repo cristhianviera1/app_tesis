@@ -1,10 +1,40 @@
-import React, {FunctionComponent} from 'react';
-import {IonContent, IonHeader, IonPage, IonTitle, IonToolbar} from '@ionic/react';
+import React, {FunctionComponent, useEffect, useState} from 'react';
+import {IonContent, IonHeader, IonTitle, IonToolbar} from '@ionic/react';
 import './Newness.css';
 import NewnessCard from "../../components/cards/newness/Newness-card";
 import Layout from "../../components/layout/Layout";
+import {axiosConfig} from "../../components/helpers/axiosConfig";
+
+interface NewnessCard {
+    title: string;
+    image: string;
+    description: string;
+    link: string;
+}
 
 const Newness: FunctionComponent = () => {
+    const [loading, setLoading] = useState<boolean>(false);
+    const [newness, setNewness] = useState<NewnessCard[]>();
+
+    const getNewness = () => {
+        setLoading(false)
+        axiosConfig().get('newness')
+            .then(({data}) => {
+                console.log(data);
+                setNewness(data.map((newness: any) => ({
+                    title: newness.title,
+                    image: newness.image,
+                    description: newness.description,
+                    link: newness.link,
+                })))
+            })
+            .catch()
+            .finally(() => setLoading(true))
+    }
+
+    useEffect(() => {
+        getNewness();
+    }, [])
     return (
         <Layout>
             <IonHeader>
@@ -13,12 +43,16 @@ const Newness: FunctionComponent = () => {
                 </IonToolbar>
             </IonHeader>
             <IonContent fullscreen>
-                <NewnessCard
-                    title={"Pandemia de COVID-19"}
-                    image={"https://www.kimirina.org/images/kimirina/articulos/infodemic_960.jpg"}
-                    description={"NUEVA YORK, 23 de septiembre 2020—La Organización Mundial de la Salud (OMS), junto con las Naciones Unidas, los organismos especializados y los asociados, pidió hoy a los países que elaboren y apliquen planes de acción para promover la difusión oportuna de información de base científica y evitar la difusión de información falsa, respetando al mismo tiempo la libertad de expresión."}
-                    link={"https://www.kimirina.org/index.php"}
-                />
+                {
+                    newness?.map((newness) =>
+                        <NewnessCard
+                            title={newness.title}
+                            image={newness.image}
+                            description={newness.description}
+                            link={newness.link}
+                        />
+                    )
+                }
             </IonContent>
         </Layout>
     );
