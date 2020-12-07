@@ -1,4 +1,4 @@
-import React, {FunctionComponent, useState} from 'react';
+import React, {FunctionComponent, useEffect, useState} from 'react';
 import {
     IonBackButton,
     IonButton,
@@ -7,53 +7,73 @@ import {
     IonCardContent,
     IonCardHeader,
     IonCardSubtitle,
-    IonCardTitle,
+    IonCardTitle, IonContent,
     IonHeader,
     IonLabel,
     IonToolbar
 } from '@ionic/react';
-import './Products.css';
+import './ProductView.css';
+import Layout from "../../components/layout/Layout";
+import {useHistory, useLocation} from "react-router-dom";
+import {axiosConfig} from "../../components/helpers/axiosConfig";
+import {ProductsCardInfo} from "../../components/cards/products/Products-card";
+import {ProductCard} from "./Products";
+import {image} from "ionicons/icons";
 
 const ProductView: FunctionComponent = () => {
     const [searchText, setSearchText] = useState('');
+    const [loading, setLoading] = useState<boolean>(false);
+    const [productId, setProductId] = useState();
+    const [product, setProduct] = useState<ProductCard>();
+    const history = useHistory();
+
+    const getProductDetail = (id:string) => {
+        setLoading(true)
+        axiosConfig().get(`products/${id}`)
+            .then(({data})=>{
+                setProduct({
+                    _id: data._id,
+                    name: data.name,
+                    image: data.image,
+                    detail: data.detail,
+                    price: data.price,
+                })
+                setLoading(true);
+            })
+            .catch(()=>{
+                setLoading(true)
+            })
+    }
+    useEffect(() => {
+        const id: any = history.location.state;
+        setProductId(id);
+        !product && getProductDetail(id)
+    }, [history])
     return (
-        <>
-        <IonHeader>
-            <IonToolbar>
-                <IonButtons slot="start">
-                    <IonBackButton defaultHref="/products"/>
-                </IonButtons>
-                <IonLabel>Prep</IonLabel>
-            </IonToolbar>
-        </IonHeader>
-    <IonCard className={"product-card"}>
-        <IonCardHeader>
-            <img width="100%" height="100%" src="https://www.kimirina.org/images/kimirina/servicios/hazte_la_prueba.png"/>
-            <IonCardSubtitle>30</IonCardSubtitle>
-            <IonCardTitle>Prep</IonCardTitle>
-        </IonCardHeader>
-        <IonCardContent>
-            Corporación Kimirina cuenta con un equipo de promotores debidamente capacitados y habilitados en la prestación de la realización de las pruebas rápidas de VIH por parte del Ministerio de Salud Pública y en la vinculación de las personas conpruebas de tamizaje con resultado Reactivo y/o positivo de VIH a las Unidades de Atención Integral en Salud (UAIS) para su atención, cuidado y tratamiento de la infección por el VIH.
-            Corporación Kimirina cuenta con un equipo de promotores debidamente capacitados y habilitados en la prestación de la realización
-            Corporación Kimirina cuenta con un equipo de promotores debidamente capacitados y habilitados en la prestación de la realización
-            Corporación Kimirina cuenta con un equipo de promotores debidamente capacitados y habilitados en la prestación de la realización
-            Corporación Kimirina cuenta con un equipo de promotores debidamente capacitados y habilitados en la prestación de la realización
-            Corporación Kimirina cuenta con un equipo de promotores debidamente capacitados y habilitados en la prestación de la realización
-            Corporación Kimirina cuenta con un equipo de promotores debidamente capacitados y habilitados en la prestación de la realización
-            Corporación Kimirina cuenta con un equipo de promotores debidamente capacitados y habilitados en la prestación de la realización
-            Corporación Kimirina cuenta con un equipo de promotores debidamente capacitados y habilitados en la prestación de la realización
-            Corporación Kimirina cuenta con un equipo de promotores debidamente capacitados y habilitados en la prestación de la realización Corporación Kimirina cuenta con un equipo de promotores debidamente capacitados y habilitados en la prestación de la realización
-            Corporación Kimirina cuenta con un equipo de promotores debidamente capacitados y habilitados en la prestación de la realización
-            Corporación Kimirina cuenta con un equipo de promotores debidamente capacitados y habilitados en la prestación de la realización
-            Corporación Kimirina cuenta con un equipo de promotores debidamente capacitados y habilitados en la prestación de la realización
-            Corporación Kimirina cuenta con un equipo de promotores debidamente capacitados y habilitados en la prestación de la realización
-
-
-        </IonCardContent>
-        <IonButton className={"btn"} expand={"block"} color="success" href="/login">Comprar</IonButton>
-    </IonCard>
-            </>
+        <Layout>
+            <IonHeader>
+                <IonToolbar>
+                    <IonButtons slot="start">
+                        <IonBackButton defaultHref="/products"/>
+                    </IonButtons>
+                </IonToolbar>
+            </IonHeader>
+            <IonContent fullscreen>
+                <IonCard className={"product-card"}>
+                    <IonCardHeader>
+                        <img width="100%" height="100%"
+                             src={product?.image}/>
+                        <IonCardSubtitle>{product?.price}</IonCardSubtitle>
+                        <IonCardTitle>{product?.name}</IonCardTitle>
+                    </IonCardHeader>
+                    <IonCardContent>
+                        {product?.detail}
+                    </IonCardContent>
+                    <IonButton className={"btn"} expand={"block"} color="success" href="/login">Agregar al
+                        carrito</IonButton>
+                </IonCard>
+            </IonContent>
+        </Layout>
     );
 };
-
 export default ProductView;

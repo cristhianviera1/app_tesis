@@ -11,16 +11,26 @@ import {
     IonTabButton, IonText
 } from "@ionic/react"
 import {addCircle, closeCircle, removeCircle} from "ionicons/icons";
+import * as localStorage from "local-storage";
+import {axiosConfig} from "../../helpers/axiosConfig";
+import {ProductCard} from "../../../pages/products/Products";
 
 export interface CartCardInfo {
-    title: string;
+    name: string;
     image: string;
-    description: string;
-
+    detail: string;
 }
-const CartCard: FunctionComponent<CartCardInfo> = ({title, image,description}) => {
+const CartCard: FunctionComponent<CartCardInfo> = ({name, image,detail}) => {
     const [number, setNumber] = useState<number>(1);
+
+
+
+
+    const cartProducts = localStorage.get('products');
+
+
     useEffect(() => {
+        console.log(cartProducts)
     }, [number])
     return(
         <IonItem>
@@ -31,8 +41,8 @@ const CartCard: FunctionComponent<CartCardInfo> = ({title, image,description}) =
                 </IonCol>
                 <IonCol>
                     <IonLabel style={{minWidth:'100%'}}>
-                        <h2 style={{fontWeight: "bold"}}>{title}</h2>
-                        <p>{description}</p>
+                        <h2 style={{fontWeight: "bold"}}>{name}</h2>
+                        <p>{detail}</p>
                     </IonLabel>
                     <IonRow style={{display:'flex', justifyContent:'flex-end', width:'100%', alignItems:'center'}}>
                         <IonButton color={'danger'} fill="clear" disabled={number == 1}

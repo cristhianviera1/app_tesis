@@ -20,6 +20,8 @@ import {environment} from "../../enviroment/enviroment";
 import * as localStorage from "local-storage";
 import './Login.css'
 import {useHistory} from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 interface LoginValues {
     email: string;
@@ -30,6 +32,7 @@ const Login: FunctionComponent = () => {
     const [loading, setLoading] = useState<boolean>(false);
     const [loginError, setLoginError] = useState<string>()
     const history = useHistory();
+
     setLocale({
         mixed: {
             required: "El campo es requerido"
@@ -116,6 +119,8 @@ const Login: FunctionComponent = () => {
                 <IonButton onClick={() => {
                     history.push('/register')
                 }} expand="block">Registrate</IonButton>
+
+                <ToastContainer />
             </IonCardContent>
         </IonCard>
     );

@@ -27,6 +27,8 @@ import moment from "moment";
 import {axiosConfig} from "../../components/helpers/axiosConfig";
 import {useHistory} from "react-router";
 import {checkmarkCircleOutline, closeCircleOutline} from "ionicons/icons";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 interface RegisterValues {
     name: string;
@@ -49,8 +51,6 @@ const Register: FunctionComponent = () => {
     const minDate = String(Number(moment().format('YYYY')) - 90);
     const history = useHistory();
     const [loading, setLoading] = useState<boolean>(false);
-    const [visibleSucces, setVisibleSuccess] = useState<boolean>(false);
-    const [visibleError, setVisibleError] = useState<boolean>(false);
     const validationSchema = yup.object().shape({
         name: yup.string().required().min(3).max(30),
         surname: yup.string().required().min(3).max(30),
@@ -64,8 +64,15 @@ const Register: FunctionComponent = () => {
     const onSubmit = (data: RegisterValues) => {
         setLoading(true)
         axiosConfig().post('auth/sign-in', data)
-            .then(() => setVisibleSuccess(true))
-            .catch(() => setVisibleError(true))
+            .then(() => {
+                toast.success("Registrado correctamente, su contraseña será enviada a su correo electrónico.")
+            })
+            .catch((error) => {
+                if(error?.response?.data?.message){
+                    return toast.error(error?.response?.data?.message);
+                }
+                return toast.error("No se ha podido registrar, por favor intentelo más tarde");
+            })
             .finally(() => setLoading(false))
     }
 
@@ -154,35 +161,6 @@ const Register: FunctionComponent = () => {
                     {loading ? <IonSpinner name="lines"/> : "Registrarse"}
                 </IonButton>
             </IonCard>
-            {
-                visibleSucces &&
-                <IonModal
-                    isOpen={visibleSucces}
-                    swipeToClose={true}
-                    cssClass={'modal'}
-                    onDidDismiss={() => {
-                        setVisibleSuccess(false)
-                        history.push('/login');
-                    }}>
-                    <IonIcon slot="icon-only" color={"success"} icon={checkmarkCircleOutline}/>
-                    <IonText color="success">Registro exitoso, por favor revisa tu correo electrónico para
-                        verificar</IonText>
-                </IonModal>
-            }
-            {
-                visibleError &&
-                <IonModal
-                    isOpen={visibleError}
-                    cssClass={'modal'}
-                    swipeToClose={true}
-                    onDidDismiss={() => {
-                        setVisibleError(false)
-                    }}>
-                    <IonIcon slot="icon-only" color={"danger"} icon={closeCircleOutline}/>
-                    <IonText color="danger">Algo ha salido mal por favor verifica los datos y vuelva a
-                        intentarlo</IonText>
-                </IonModal>
-            }
         </>
     );
 };

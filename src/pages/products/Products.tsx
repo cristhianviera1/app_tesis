@@ -5,11 +5,13 @@ import Layout from "../../components/layout/Layout";
 import ProductsCard from "../../components/cards/products/Products-card";
 import {cart} from 'ionicons/icons';
 import {axiosConfig} from "../../components/helpers/axiosConfig";
+import * as localStorage from "local-storage";
 
-interface ProductCard {
-    title: string;
+export interface ProductCard {
+    _id: string;
+    name: string;
     image: string;
-    description: string;
+    detail: string;
     price: string;
 }
 
@@ -18,14 +20,16 @@ const Products: FunctionComponent = () => {
     const [loading, setLoading] = useState<boolean>(false)
     const [products, setProducts] = useState<ProductCard[]>()
 
+
     const getProducts = () => {
         setLoading(true)
         axiosConfig().get('products')
             .then(({data}) => {
-                setProducts(data.map((product: any) => ({
-                    title: product.name,
+                setProducts(data.map((product: ProductCard) => ({
+                    _id: product._id,
+                    name: product.name,
                     image: product.image,
-                    description: product.detail,
+                    detail: product.detail,
                     price: product.price,
                 })))
             })
@@ -52,9 +56,10 @@ const Products: FunctionComponent = () => {
                 {
                     products?.map((product) =>
                         <ProductsCard
-                            title={product.title}
+                            id={product._id}
+                            name={product.name}
                             image={product.image}
-                            description={product.description}
+                            detail={product.detail.slice(0, 20)}
                             price={`$${product.price}`}
                         />
                     )

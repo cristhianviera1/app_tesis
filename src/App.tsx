@@ -30,6 +30,7 @@ import Register from "./pages/register/Register";
 import Form from "./pages/form/Form";
 import Cart from "./pages/cart/Cart";
 import ChatBubble from "./components/chat/ChatBubble";
+import Id from "./pages/products/ProductView";
 
 const App: React.FC = () => (
     <IonApp>
@@ -44,6 +45,7 @@ const App: React.FC = () => (
                 <Route path="/profile" component={Profile} exact={true}/>
                 <Route path="/form" component={Form} exact={true}/>
                 <Route path="/cart" component={Cart} exact={true}/>
+                <Route path="/productDetail" component={Id} exact={true}/>
                 <Route path={'/'} render={() => <Redirect to={'/login'}/>} exact={true}/>
             </IonRouterOutlet>
         </IonReactRouter>

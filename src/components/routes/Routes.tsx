@@ -10,6 +10,7 @@ import ChatBubble from "../chat/ChatBubble";
 import Register from "../../pages/register/Register"
 import Form from "../../pages/form/Form"
 import Cart from "../../pages/cart/Cart"
+import Id from "../../pages/products/ProductView";
 import {IonIcon, IonLabel, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs} from "@ionic/react";
 import {ellipse, square, triangle} from "ionicons/icons";
 
@@ -27,6 +28,7 @@ const Routes: FunctionComponent = () => {
                     <Route path="/registro" component={Register} exact={true}/>
                     <Route path="/formulario" component={Form} exact={true}/>
                     <Route path="/carrito" component={Cart} exact={true}/>
+                    <Route path="/detalleproducto" component={Id} exact={true}/>
                     <Route path={'/'} render={() => <Redirect to={'/login'}/>} exact={true}/>
                 </IonRouterOutlet>
                 <IonTabBar slot="bottom">
