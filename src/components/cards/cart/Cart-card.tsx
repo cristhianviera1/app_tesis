@@ -1,19 +1,7 @@
 import React, {FunctionComponent, useEffect, useState} from "react";
-import {
-    IonButton,
-    IonCard,
-    IonCardContent,
-    IonCardHeader,
-    IonCardTitle, IonCol,
-    IonContent, IonIcon, IonItem, IonLabel,
-    IonRouterOutlet,
-    IonRow,
-    IonTabButton, IonText
-} from "@ionic/react"
+import {IonButton, IonCol, IonIcon, IonItem, IonLabel, IonRow, IonText} from "@ionic/react"
 import {addCircle, closeCircle, removeCircle} from "ionicons/icons";
 import * as localStorage from "local-storage";
-import {axiosConfig} from "../../helpers/axiosConfig";
-import {ProductCard} from "../../../pages/products/Products";
 
 export interface CartCardInfo {
     name: string;

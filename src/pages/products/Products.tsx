@@ -5,7 +5,6 @@ import Layout from "../../components/layout/Layout";
 import ProductsCard from "../../components/cards/products/Products-card";
 import {cart} from 'ionicons/icons';
 import {axiosConfig} from "../../components/helpers/axiosConfig";
-import * as localStorage from "local-storage";
 
 export interface ProductCard {
     _id: string;

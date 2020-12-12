@@ -16,12 +16,7 @@ export interface ChatBubbleInfo {
 const ChatBubble: FunctionComponent<ChatBubbleInfo> = ({color, position, message}) => {
     return (
         <div className={"chat-container"}>
-            <IonItem className={"chat-item"} style={{backgroundColor:"#f00"}}>
-                <IonLabel>
-                    <p>"ola bb con todo jespeto"</p>
-                </IonLabel>
-            </IonItem>
-            <IonItem className={"chat-item"} style={{backgroundColor:"#f00"}}>
+            <IonItem className={"chat-item"}>
                 <IonLabel>
                     <p>"ola bb con todo jespeto"</p>
                 </IonLabel>

@@ -7,18 +7,16 @@ import {
     IonCardContent,
     IonCardHeader,
     IonCardSubtitle,
-    IonCardTitle, IonContent,
+    IonCardTitle,
+    IonContent,
     IonHeader,
-    IonLabel,
     IonToolbar
 } from '@ionic/react';
 import './ProductView.css';
 import Layout from "../../components/layout/Layout";
-import {useHistory, useLocation} from "react-router-dom";
+import {useHistory} from "react-router-dom";
 import {axiosConfig} from "../../components/helpers/axiosConfig";
-import {ProductsCardInfo} from "../../components/cards/products/Products-card";
 import {ProductCard} from "./Products";
-import {image} from "ionicons/icons";
 
 const ProductView: FunctionComponent = () => {
     const [searchText, setSearchText] = useState('');

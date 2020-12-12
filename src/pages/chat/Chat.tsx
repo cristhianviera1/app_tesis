@@ -1,11 +1,44 @@
-import React, {FunctionComponent} from 'react';
-import {IonContent, IonHeader, IonPage, IonTitle, IonToolbar} from '@ionic/react';
+import React, {FunctionComponent, useEffect, useState} from 'react';
+import {IonContent, IonHeader, IonList, IonRefresher, IonRefresherContent, IonTitle, IonToolbar} from '@ionic/react';
 import './Chat.css';
 import Layout from "../../components/layout/Layout";
-import ListChat from "../../components/list-item/ListChat";
+import {axiosConfig} from "../../components/helpers/axiosConfig";
+import ChatItem from "../../components/list-item/ChatItem";
 
+
+interface User {
+    name: string,
+    status: boolean,
+    profileImage: string,
+}
 
 const Chat: FunctionComponent = () => {
+    const [loading, setLoading] = useState<boolean>(false)
+    const [users, setUsers] = useState<User[]>()
+    const getChats = (event?: CustomEvent) => {
+        if (window !== undefined) {
+            setLoading(true);
+            axiosConfig().get('chats/users')
+                .then(({data}) => {
+                    setUsers(
+                        data.map((user: any) => ({
+                            name: `${user.name} ${user.surname}`,
+                            status: user.status,
+                            profileImage: user?.image
+                        }))
+                    )
+                })
+                .catch(() => {
+                })
+                .finally(() => {
+                    setLoading(false)
+                    event?.detail?.complete();
+                })
+        }
+    }
+    useEffect(() => {
+        getChats();
+    }, [])
     return (
         <Layout>
             <IonHeader>
@@ -14,11 +47,25 @@ const Chat: FunctionComponent = () => {
                 </IonToolbar>
             </IonHeader>
             <IonContent fullscreen>
-                <ListChat name={"Finn"}
-                          image={"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.onlinewebfonts.com%2Fsvg%2Fimg_24787.png&f=1&nofb=1"}
-                          message={"Hey whatsapp NIGGA :v"}
-                          description={"jsjsjsjs puto el que lo lea jajaj xd"}
-                />
+                <IonRefresher slot="fixed" onIonRefresh={getChats}>
+                    <IonRefresherContent>
+                    </IonRefresherContent>
+                </IonRefresher>
+                <IonList>
+                    {
+                        users?.map((user) => {
+                            return (
+                                <ChatItem
+                                    name={user.name}
+                                    image={user.profileImage}
+                                    message={''}
+                                    description={'Todavía no tienes mensajes'}
+                                    active={user.status}
+                                />
+                            );
+                        })
+                    }
+                </IonList>
             </IonContent>
         </Layout>
     );

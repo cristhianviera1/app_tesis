@@ -1,5 +1,5 @@
 import React, {FunctionComponent} from "react";
-import {IonButton, IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonContent, IonRouterOutlet, IonTabButton} from "@ionic/react";
+import {IonButton, IonCard, IonCardContent, IonCardHeader, IonCardTitle} from "@ionic/react";
 import './Newness-card.css'
 
 export interface NewnessCardInfo {

@@ -7,6 +7,6 @@
 
 .chat-item {
     border-radius: 0px 20px 20px 20px;
-    background-color: #2dd36f!important;
-    background: #3a7be0;
+    border: 1px solid #C00;
+    background: #2dd36f !important;
 }

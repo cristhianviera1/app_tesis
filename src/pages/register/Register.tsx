@@ -9,11 +9,9 @@ import {
     IonCardTitle,
     IonDatetime,
     IonHeader,
-    IonIcon,
     IonInput,
     IonItem,
     IonLabel,
-    IonModal,
     IonSpinner,
     IonText,
     IonToolbar
@@ -26,8 +24,7 @@ import {Controller, useForm} from "react-hook-form";
 import moment from "moment";
 import {axiosConfig} from "../../components/helpers/axiosConfig";
 import {useHistory} from "react-router";
-import {checkmarkCircleOutline, closeCircleOutline} from "ionicons/icons";
-import { ToastContainer, toast } from 'react-toastify';
+import {toast, ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 interface RegisterValues {
@@ -48,7 +45,7 @@ const Register: FunctionComponent = () => {
             email: "Ingrese un email válido"
         },
     });
-    const minDate = String(Number(moment().format('YYYY')) - 90);
+    const minAge: number = 13;
     const history = useHistory();
     const [loading, setLoading] = useState<boolean>(false);
     const validationSchema = yup.object().shape({
@@ -63,7 +60,7 @@ const Register: FunctionComponent = () => {
 
     const onSubmit = (data: RegisterValues) => {
         setLoading(true)
-        axiosConfig().post('auth/sign-in', data)
+        axiosConfig().post('auth/register', data)
             .then(() => {
                 toast.success("Registrado correctamente, su contraseña será enviada a su correo electrónico.")
             })
@@ -83,7 +80,6 @@ const Register: FunctionComponent = () => {
                     <IonButtons slot="start">
                         <IonBackButton defaultHref="/login"/>
                     </IonButtons>
-                    <IonLabel>Volver</IonLabel>
                 </IonToolbar>
             </IonHeader>
             <IonCard style={{textAlign: 'center'}}>
@@ -114,6 +110,7 @@ const Register: FunctionComponent = () => {
                             render={({onChange, value}) => (
                                 <IonInput
                                     value={value}
+                                    autoCapitalize={'on'}
                                     className="input-register"
                                     type={'email'}
                                     onIonChange={(e) => onChange(e.detail.value)}/>
@@ -129,8 +126,10 @@ const Register: FunctionComponent = () => {
                             render={({onChange, value}) => (
                                 <IonInput
                                     value={value}
+                                    autoCapitalize={'off'}
                                     className="input-register"
                                     type={'email'}
+                                    inputMode={'email'}
                                     onIonChange={(e) => onChange(e.detail.value)}/>
                             )}
                         />
@@ -144,8 +143,7 @@ const Register: FunctionComponent = () => {
                             render={({onChange, value}) => (
                                 <IonDatetime
                                     displayFormat="YYYY/MM/DD"
-                                    min={minDate}
-                                    max={String(moment().format('YYYY-MM-DD'))}
+                                    max={String(moment().subtract(minAge, 'years').format("YYYY-MM-YY"))}
                                     value={value}
                                     onIonChange={(e) => {
                                         onChange(e.detail.value);
@@ -161,6 +159,7 @@ const Register: FunctionComponent = () => {
                     {loading ? <IonSpinner name="lines"/> : "Registrarse"}
                 </IonButton>
             </IonCard>
+            <ToastContainer/>
         </>
     );
 };

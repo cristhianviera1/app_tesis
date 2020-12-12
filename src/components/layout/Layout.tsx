@@ -1,16 +1,5 @@
 import React, {FunctionComponent} from "react";
-import {
-    IonApp,
-    IonFooter,
-    IonIcon,
-    IonLabel,
-    IonPage,
-    IonTabBar,
-    IonTabButton,
-    IonTabs, IonTitle,
-    IonToolbar
-} from "@ionic/react";
-import {bag, chatbox, notifications, person} from "ionicons/icons";
+import {IonPage} from "@ionic/react";
 import Footer from "../footer/Footer";
 
 const Layout: FunctionComponent = ({children}) => {

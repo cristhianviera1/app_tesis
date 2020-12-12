@@ -1,6 +1,6 @@
 {
   "appId": "io.ionic.starter",
-  "appName": "app_tesis",
+  "appName": "myApp",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "build",
@@ -9,5 +9,6 @@
       "launchShowDuration": 0
     }
   },
-  "cordova": {}
+  "cordova": {},
+  "linuxAndroidStudioPath": "/home/gabriel/Programas/android_studio/studio.sh"
 }
