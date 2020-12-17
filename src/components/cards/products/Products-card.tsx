@@ -31,7 +31,7 @@ const ProductsCard: FunctionComponent<ProductsCardInfo> = ({id, name, image, det
             <IonCardContent>
                 {detail}
             </IonCardContent>
-            <IonButton className={"btn"} expand={"block"} color="success" onClick={()=>addToCart({
+            <IonButton className={"btn"} expand={"block"}  onClick={()=>addToCart({
                 _id: id,
                 name,image,detail,price
             })}>Agregar al carrito</IonButton>

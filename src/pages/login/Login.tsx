@@ -120,10 +120,11 @@ const Login: FunctionComponent = () => {
             >
                 {loading ? <IonSpinner name="lines"/> : "Iniciar Sesión"}
             </IonButton>
+
             <IonFooter>
                 ¿No tienes una cuenta?<a onClick={() => history.push('/register')}>{" Registrarse"}</a>
                 <br/>
-                <a onClick={() => history.push('/register')}>Recuperar contraseña</a>
+                <a onClick={() => history.push('/recoverpassword')}>Recuperar contraseña</a>
             </IonFooter>
         </IonContent>
     );

@@ -21,6 +21,7 @@ const CartCard: FunctionComponent<CartCardInfo> = ({name, image,detail}) => {
         console.log(cartProducts)
     }, [number])
     return(
+        <>
         <IonItem>
             <IonRow style={{width:'100%'}}>
                 <IonCol size={"5"}>
@@ -49,6 +50,8 @@ const CartCard: FunctionComponent<CartCardInfo> = ({name, image,detail}) => {
                 </IonButton>
             </IonRow>
         </IonItem>
+    <IonButton className={"btn"} expand={"block"}>Agregar al carrito</IonButton>
+            </>
     )
 }
 export default CartCard;

@@ -1,20 +1,20 @@
 import React, {FunctionComponent} from 'react';
 import {
-    IonAvatar,
-    IonCard,
+    IonAvatar, IonButton,
+    IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle,
     IonContent,
     IonHeader,
     IonIcon,
     IonItem,
     IonLabel,
-    IonList,
+    IonList, IonListHeader, IonSpinner,
     IonText,
     IonTitle,
     IonToolbar,
 } from '@ionic/react';
 import './Profile.css';
 import Layout from "../../components/layout/Layout";
-import {key, mail, repeat, thumbsUp} from 'ionicons/icons';
+import {logInOutline, readerOutline, repeatOutline, repeat, thumbsUp, eyeOff} from 'ionicons/icons';
 import {useHistory} from "react-router-dom";
 
 
@@ -25,44 +25,35 @@ const Profile: FunctionComponent = () => {
             <IonHeader>
                 <IonToolbar>
                     <IonTitle>Perfil</IonTitle>
+                    <IonButton href="/login" slot="end" fill="clear">
+                            <IonLabel>Cerrar sesión</IonLabel>
+                        <IonIcon slot="icon-only" icon={logInOutline}/>
+                    </IonButton>
                 </IonToolbar>
             </IonHeader>
             <IonContent>
-                <IonCard>
-                    <IonAvatar className="center" style={{
-                        width: "30%",
-                        height: '30%'
-                    }}>
-                        <img
-                            src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.onlinewebfonts.com%2Fsvg%2Fimg_24787.png&f=1&nofb=1"/>
-                    </IonAvatar>
-                    <IonText style={{textAlign: 'center'}}>
-                        <h3>Alanys Rojas</h3>
-                    </IonText>
-                </IonCard>
-                <IonCard>
+                <br/>
+                <IonAvatar className="center" style={{
+                    width: "46%",
+                    height: '30%'
+                }}>
+                    <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y"/>
+                </IonAvatar>
+                <IonCardTitle style={{textAlign: 'center'}}>Alanys Rojas</IonCardTitle>
+                <IonCardSubtitle style={{textAlign: 'center'}}>alyfr2000@gmail.com</IonCardSubtitle>
+                <br/>
+                <IonList className={"padding"}>
+                    <IonItem color="primary" button={true} href={"/passwordchange"}  style={{borderRadius:'15px'}}>
+                        <IonIcon slot="end" icon={repeatOutline}/>
+                        <IonLabel>Cambiar contraseña</IonLabel>
+                    </IonItem>
+                    <br/>
+                    <IonItem color="primary" button={true} href={"/form"} style={{borderRadius:'15px'}}>
+                        <IonIcon slot="end" icon={readerOutline}/>
+                        <IonLabel>Abrir encuesta</IonLabel>
+                    </IonItem>
 
-                    <IonList>
-                        <IonItem>
-                            <IonIcon icon={mail}/>
-                            <IonLabel>alyfr2000@gmail.com</IonLabel>
-                        </IonItem>
-                        <IonItem>
-                            <IonIcon icon={key}/>
-                            <IonLabel>Cambiar Contraseña</IonLabel>
-                        </IonItem>
-                        <IonItem>
-                            <IonIcon icon={repeat}/>
-                            <IonLabel>Cambiar correo</IonLabel>
-                        </IonItem>
-                        <IonItem onClick={() => history.push('/form')}>
-                            <IonIcon icon={thumbsUp}/>
-                            <IonLabel>Ayudanos con la encuesta</IonLabel>
-                        </IonItem>
-
-
-                    </IonList>
-                </IonCard>
+                </IonList>
             </IonContent>
         </Layout>
     );
