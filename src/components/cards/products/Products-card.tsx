@@ -22,7 +22,11 @@ const ProductsCard: FunctionComponent<ProductsCardInfo> = ({id, name, image, det
         localStorage.set('products', [...cartProducts, product])
     };
     return (
-        <IonCard className={"product-card"} onClick={() => history.push({pathname: '/productDetail', state: id})}>
+        <IonCard
+            key={id}
+            className={"product-card"}
+            onClick={() => history.push({pathname: '/productDetail', state: id})}
+        >
             <IonCardHeader>
                 <img width="100%" height="100%" src={image}/>
                 <IonCardSubtitle>{price}</IonCardSubtitle>
@@ -31,9 +35,9 @@ const ProductsCard: FunctionComponent<ProductsCardInfo> = ({id, name, image, det
             <IonCardContent>
                 {detail}
             </IonCardContent>
-            <IonButton className={"btn"} expand={"block"}  onClick={()=>addToCart({
+            <IonButton className={"btn"} expand={"block"} onClick={() => addToCart({
                 _id: id,
-                name,image,detail,price
+                name, image, detail, price
             })}>Agregar al carrito</IonButton>
         </IonCard>
     )

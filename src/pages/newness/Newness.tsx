@@ -44,8 +44,9 @@ const Newness: FunctionComponent = () => {
             </IonHeader>
             <IonContent fullscreen>
                 {
-                    newness?.map((newness) =>
+                    newness?.map((newness, index) =>
                         <NewnessCard
+                            key={index}
                             title={newness.title}
                             image={newness.image}
                             description={newness.description}

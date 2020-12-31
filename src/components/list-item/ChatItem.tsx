@@ -1,9 +1,11 @@
 import React, {FunctionComponent} from "react";
 import {IonAvatar, IonButton, IonIcon, IonItem, IonLabel} from "@ionic/react";
 import {ellipse} from "ionicons/icons";
+import {useHistory} from "react-router-dom";
 
 
 export interface ListChatInfo {
+    id: string;
     name: string;
     image: string;
     message: string;
@@ -11,11 +13,16 @@ export interface ListChatInfo {
     active: boolean;
 }
 
-const ChatItem: FunctionComponent<ListChatInfo> = ({name, image, message, description, active}) => {
+const ChatItem: FunctionComponent<ListChatInfo> = ({
+                                                       id, name, image, message, description, active
+                                                   }) => {
+    const history = useHistory();
     return (
-        <IonItem href="/chatdetail">
+        <IonItem onClick={() => {
+            history.push("/chatdetail", {name: name, id: id})
+        }}>
             <IonAvatar slot="start">
-                <img src={image ? image : "/assets/profilePicture.png"}/>
+                <img src={image ? image : "/assets/profilePicture.png"} alt={'profile_picture'}/>
             </IonAvatar>
             <IonLabel>
                 <h2>{name}</h2>

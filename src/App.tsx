@@ -29,10 +29,11 @@ import Profile from "./pages/profile/Profile";
 import Register from "./pages/register/Register";
 import Form from "./pages/form/Form";
 import Cart from "./pages/cart/Cart";
-import ChatBubble from "./components/chat/ChatBubble";
 import Id from "./pages/products/ProductView";
 import RecoverPassword from "./pages/recoverPassword/RecoverPassword";
 import PasswordChange from "./pages/recoverPassword/PasswordChange";
+import ChatDetail from "./pages/chat/ChatDetail";
+import BranchOffices from "./pages/branchOffices/BranchOffices";
 
 const App: React.FC = () => (
     <IonApp>
@@ -43,7 +44,8 @@ const App: React.FC = () => (
                 <Route path="/newness" component={Newness} exact={true}/>
                 <Route path="/products" component={Products} exact={true}/>
                 <Route path="/chat" component={Chat} exact={true}/>
-                <Route path="/chatdetail" component={ChatBubble} exact={true}/>
+                <Route path="/chatdetail" component={ChatDetail} exact={true}/>
+                <Route path="/branchOffices" component={BranchOffices} exact={true}/>
                 <Route path="/profile" component={Profile} exact={true}/>
                 <Route path="/form" component={Form} exact={true}/>
                 <Route path="/cart" component={Cart} exact={true}/>

@@ -1,12 +1,21 @@
-.chat-container {
-    display: flex;
-    width: 100%;
-    align-self: end;
-    margin: 2%;
+.bubble_text_right {
+    border: 2px solid #F00;
+    border-radius: 20px 0px 20px 20px;
+    padding: 5px;
+    display: inline-block;
+    max-width: 100%;
 }
 
-.chat-item {
+.bubble_text_left {
+    border: 2px solid #000;
     border-radius: 0px 20px 20px 20px;
-    border: 1px solid #C00;
-    background: #2dd36f !important;
+    padding: 5px;
+    display: inline-block;
+    max-width: 100%;
+}
+
+.bubble_container {
+    padding: 20px;
+    width: 100%;
+    min-height: 30px;
 }

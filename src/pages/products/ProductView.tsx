@@ -10,6 +10,7 @@ import {
     IonCardTitle,
     IonContent,
     IonHeader,
+    IonLabel,
     IonToolbar
 } from '@ionic/react';
 import './ProductView.css';
@@ -53,6 +54,7 @@ const ProductView: FunctionComponent = () => {
                 <IonToolbar>
                     <IonButtons slot="start">
                         <IonBackButton defaultHref="/products"/>
+                        <IonLabel>{product?.name}</IonLabel>
                     </IonButtons>
                 </IonToolbar>
             </IonHeader>
@@ -67,7 +69,7 @@ const ProductView: FunctionComponent = () => {
                     <IonCardContent>
                         {product?.detail}
                     </IonCardContent>
-                    <IonButton className={"btn"} expand={"block"} color="success" href="/login">Agregar al
+                    <IonButton className={"btn"} expand={"block"} href="/login">Agregar al
                         carrito</IonButton>
                 </IonCard>
             </IonContent>

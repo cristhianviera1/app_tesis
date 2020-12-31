@@ -1,6 +1,6 @@
 import React, {FunctionComponent} from "react";
 import {IonButton, IonFooter, IonIcon, IonToolbar} from "@ionic/react";
-import {bag, chatbubbles, notifications, person} from 'ionicons/icons';
+import {chatbubblesOutline, mapOutline, notificationsOutline, personOutline, storefrontOutline} from 'ionicons/icons';
 import './Footer.css';
 
 const Footer: FunctionComponent = () => {
@@ -9,16 +9,19 @@ const Footer: FunctionComponent = () => {
             <IonToolbar>
                 <div className="footer-bar">
                     <IonButton href="/products" fill="clear" className="btn-color">
-                        <IonIcon slot="icon-only" icon={bag}/>
+                        <IonIcon slot="icon-only" icon={storefrontOutline}/>
                     </IonButton>
                     <IonButton href="/newness" fill="clear" className="btn-color">
-                        <IonIcon slot="icon-only" icon={notifications}/>
+                        <IonIcon slot="icon-only" icon={notificationsOutline}/>
+                    </IonButton>
+                    <IonButton href="/branchOffices" fill="clear" className="btn-color">
+                        <IonIcon slot="icon-only" icon={mapOutline}/>
                     </IonButton>
                     <IonButton href="/chat" fill="clear" className="btn-color">
-                        <IonIcon slot="icon-only" icon={chatbubbles}/>
+                        <IonIcon slot="icon-only" icon={chatbubblesOutline}/>
                     </IonButton>
                     <IonButton href="/profile" fill="clear" className="btn-color">
-                        <IonIcon slot="icon-only" icon={person}/>
+                        <IonIcon slot="icon-only" icon={personOutline}/>
                     </IonButton>
                 </div>
             </IonToolbar>

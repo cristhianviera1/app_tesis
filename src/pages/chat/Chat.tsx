@@ -4,9 +4,11 @@ import './Chat.css';
 import Layout from "../../components/layout/Layout";
 import {axiosConfig} from "../../components/helpers/axiosConfig";
 import ChatItem from "../../components/list-item/ChatItem";
+import * as localStorage from "local-storage";
 
 
 interface User {
+    id: string,
     name: string,
     status: boolean,
     profileImage: string,
@@ -15,13 +17,15 @@ interface User {
 const Chat: FunctionComponent = () => {
     const [loading, setLoading] = useState<boolean>(false)
     const [users, setUsers] = useState<User[]>()
-    const getChats = (event?: CustomEvent) => {
+    const user: any = localStorage.get('user');
+    const getUsers = (event?: CustomEvent) => {
         if (window !== undefined) {
             setLoading(true);
             axiosConfig().get('chats/users')
                 .then(({data}) => {
                     setUsers(
                         data.map((user: any) => ({
+                            id: user._id,
                             name: `${user.name} ${user.surname}`,
                             status: user.status,
                             profileImage: user?.image
@@ -37,17 +41,17 @@ const Chat: FunctionComponent = () => {
         }
     }
     useEffect(() => {
-        getChats();
+        getUsers();
     }, [])
     return (
         <Layout>
             <IonHeader>
                 <IonToolbar>
-                    <IonTitle>Chat</IonTitle>
+                    <IonTitle>{`${user?.name} ${user?.surname}`}</IonTitle>
                 </IonToolbar>
             </IonHeader>
             <IonContent fullscreen>
-                <IonRefresher slot="fixed" onIonRefresh={getChats}>
+                <IonRefresher slot="fixed" onIonRefresh={getUsers}>
                     <IonRefresherContent>
                     </IonRefresherContent>
                 </IonRefresher>
@@ -56,10 +60,12 @@ const Chat: FunctionComponent = () => {
                         users?.map((user) => {
                             return (
                                 <ChatItem
+                                    key={user.id}
+                                    id={user.id}
                                     name={user.name}
                                     image={user.profileImage}
                                     message={''}
-                                    description={'Todavía no tienes mensajes'}
+                                    description={''}
                                     active={user.status}
                                 />
                             );

@@ -21,6 +21,8 @@ import * as localStorage from "local-storage";
 import './Login.css'
 import {useHistory} from "react-router-dom";
 import {eye, eyeOff} from "ionicons/icons";
+import jwt_decode from "jwt-decode";
+
 
 interface LoginValues {
     email: string;
@@ -56,9 +58,11 @@ const Login: FunctionComponent = () => {
     })
     const onSubmit = (data: LoginValues) => {
         setLoading(true);
+        console.log(data);
         axios.post(`${environment.apiUrl}auth/sign-in`, data)
             .then(({data}) => {
                 localStorage.set('token', data.accessToken);
+                localStorage.set('user', jwt_decode(data.accessToken))
                 history.push('/products')
             })
             .catch(() => {
@@ -98,8 +102,7 @@ const Login: FunctionComponent = () => {
                                 type={secureEntry ? 'password' : 'text'}
                                 onIonChange={(e) => onChange(e.detail.value)}
                             />
-                            <IonButton fill={'clear'} style={{textAlign: 'left'}}
-                                       onClick={() => setSecureEntry(!secureEntry)}>
+                            <IonButton fill={'clear'} onClick={() => setSecureEntry(!secureEntry)}>
                                 {
                                     secureEntry ?
                                         <IonIcon slot="icon-only" icon={eye}/> :
@@ -121,7 +124,7 @@ const Login: FunctionComponent = () => {
                 {loading ? <IonSpinner name="lines"/> : "Iniciar Sesión"}
             </IonButton>
 
-            <IonFooter>
+            <IonFooter style={{paddingTop: '30px'}}>
                 ¿No tienes una cuenta?<a onClick={() => history.push('/register')}>{" Registrarse"}</a>
                 <br/>
                 <a onClick={() => history.push('/recoverpassword')}>Recuperar contraseña</a>

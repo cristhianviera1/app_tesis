@@ -1,60 +1,111 @@
-import React, {FunctionComponent} from 'react';
+import React, {FunctionComponent, useEffect, useState} from 'react';
 import {
-    IonAvatar, IonButton,
-    IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle,
+    IonAvatar,
+    IonCardSubtitle,
+    IonCardTitle,
     IonContent,
     IonHeader,
     IonIcon,
     IonItem,
     IonLabel,
-    IonList, IonListHeader, IonSpinner,
-    IonText,
+    IonList,
+    IonRow,
+    IonSpinner,
     IonTitle,
     IonToolbar,
 } from '@ionic/react';
 import './Profile.css';
 import Layout from "../../components/layout/Layout";
-import {logInOutline, readerOutline, repeatOutline, repeat, thumbsUp, eyeOff} from 'ionicons/icons';
-import {useHistory} from "react-router-dom";
+import {cameraOutline, logInOutline, readerOutline, repeatOutline} from 'ionicons/icons';
+import * as localStorage from "local-storage";
+import {axiosConfig} from "../../components/helpers/axiosConfig";
+import {CameraResultType, Plugins} from '@capacitor/core';
+import {toast, ToastContainer} from "react-toastify";
 
+const {Camera} = Plugins;
 
 const Profile: FunctionComponent = () => {
-    const history = useHistory()
+    const user: any = localStorage.get('user');
+    const [userImage, setUserImage] = useState<string>('')
+    const [uploadingImage, setUploadingImage] = useState<boolean>(false)
+    const getProfileImage = () => {
+        axiosConfig().get('auth/me')
+            .then(({data}) => {
+                setUserImage(data.image)
+            })
+            .catch()
+    }
+    const openCamera = () => {
+        Camera.getPhoto({
+            quality: 90,
+            allowEditing: true,
+            resultType: CameraResultType.Base64,
+
+        }).then((image) => {
+            const res = `data:image/${image.format};base64,${image.base64String}`;
+            setUploadingImage(true)
+            axiosConfig().put('users/updateImage', {image: res})
+                .then(() => {
+                    toast.success('Foto de perfil actualizada exitósamente');
+                    getProfileImage();
+                })
+                .catch(() => toast.error('No se ha podido actualizar la foto de perfil por favor vuelva a intentarlo más tarde'))
+                .finally(() => setUploadingImage(false))
+        });
+    }
+
+    useEffect(() => {
+        getProfileImage()
+    }, [])
+
     return (
         <Layout>
             <IonHeader>
                 <IonToolbar>
                     <IonTitle>Perfil</IonTitle>
-                    <IonButton href="/login" slot="end" fill="clear">
-                            <IonLabel>Cerrar sesión</IonLabel>
-                        <IonIcon slot="icon-only" icon={logInOutline}/>
-                    </IonButton>
                 </IonToolbar>
             </IonHeader>
             <IonContent>
                 <br/>
-                <IonAvatar className="center" style={{
-                    width: "46%",
-                    height: '30%'
-                }}>
-                    <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y"/>
-                </IonAvatar>
-                <IonCardTitle style={{textAlign: 'center'}}>Alanys Rojas</IonCardTitle>
-                <IonCardSubtitle style={{textAlign: 'center'}}>alyfr2000@gmail.com</IonCardSubtitle>
+                <IonRow>
+                    <IonAvatar className="center" style={{
+                        borderRadius: '50%',
+                        width: '200px',
+                        height: '200px',
+                        position: 'relative'
+                    }}>
+                        <img src={userImage ? userImage : 'assets/avatar.svg'} alt={'foto de perfil'}/>
+                        {
+                            uploadingImage ?
+                                <IonSpinner name="circles" className={"upload-image"}/> :
+                                <IonIcon icon={cameraOutline}
+                                         onClick={() => openCamera()}
+                                         className={"upload-image"}
+                                />
+                        }
+                    </IonAvatar>
+                </IonRow>
+                <IonCardTitle style={{textAlign: 'center'}}>{`${user?.name} ${user?.surname}`}</IonCardTitle>
+                <IonCardSubtitle style={{textAlign: 'center'}}>{`${user?.email}`}</IonCardSubtitle>
                 <br/>
-                <IonList className={"padding"}>
-                    <IonItem color="primary" button={true} href={"/passwordchange"}  style={{borderRadius:'15px'}}>
-                        <IonIcon slot="end" icon={repeatOutline}/>
+                <IonList className={"padding"} lines="none">
+                    <IonItem color="primary" button={true} href={"/passwordchange"} style={{borderRadius: '15px'}}>
                         <IonLabel>Cambiar contraseña</IonLabel>
+                        <IonIcon slot="end" icon={repeatOutline}/>
                     </IonItem>
                     <br/>
-                    <IonItem color="primary" button={true} href={"/form"} style={{borderRadius:'15px'}}>
-                        <IonIcon slot="end" icon={readerOutline}/>
+                    <IonItem color="primary" button={true} href={"/form"} style={{borderRadius: '15px'}}>
                         <IonLabel>Abrir encuesta</IonLabel>
+                        <IonIcon slot="end" icon={readerOutline}/>
                     </IonItem>
-
+                    <br/>
+                    <IonItem color="primary" button={true} href="/login" style={{borderRadius: '15px'}}>
+                        <IonLabel>Cerrar sesión</IonLabel>
+                        <IonIcon slot="end" icon={logInOutline}/>
+                    </IonItem>
                 </IonList>
             </IonContent>
+            <ToastContainer/>
         </Layout>
     );
 };
