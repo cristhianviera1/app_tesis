@@ -12,6 +12,8 @@ import {
     IonInput,
     IonItem,
     IonLabel,
+    IonSelect,
+    IonSelectOption,
     IonSpinner,
     IonText,
     IonToolbar
@@ -32,6 +34,7 @@ interface RegisterValues {
     surname: string;
     email: string;
     birthday: string;
+    gender: string;
 }
 
 const Register: FunctionComponent = () => {
@@ -52,7 +55,8 @@ const Register: FunctionComponent = () => {
         name: yup.string().required().min(3).max(30),
         surname: yup.string().required().min(3).max(30),
         email: yup.string().email().required(),
-        birthday: yup.string().required()
+        birthday: yup.string().required(),
+        gender: yup.string().required()
     })
     const {control, errors, handleSubmit} = useForm<RegisterValues>({
         resolver: yupResolver(validationSchema)
@@ -60,12 +64,18 @@ const Register: FunctionComponent = () => {
 
     const onSubmit = (data: RegisterValues) => {
         setLoading(true)
-        axiosConfig().post('auth/register', data)
+        axiosConfig().post('auth/register', {
+            name: data.name,
+            surname: data.surname,
+            email: data.email,
+            birthday: moment(data.birthday).unix(),
+            gender: data.gender,
+        })
             .then(() => {
                 toast.success("Registrado correctamente, su contraseña será enviada a su correo electrónico.")
             })
             .catch((error) => {
-                if(error?.response?.data?.message){
+                if (error?.response?.data?.message) {
                     return toast.error(error?.response?.data?.message);
                 }
                 return toast.error("No se ha podido registrar, por favor intentelo más tarde");
@@ -82,7 +92,7 @@ const Register: FunctionComponent = () => {
                     </IonButtons>
                 </IonToolbar>
             </IonHeader>
-            <IonCard style={{textAlign: 'center'}}>
+            <IonCard style={{textAlign: 'cen|ter'}}>
                 <IonCardHeader>
                     <IonCardTitle>Registrate</IonCardTitle>
                 </IonCardHeader>
@@ -134,6 +144,22 @@ const Register: FunctionComponent = () => {
                             )}
                         />
                         <IonText color="danger">{errors && errors.email?.message}</IonText>
+                    </IonItem>
+                    <IonItem>
+                        <IonLabel position="floating">Género</IonLabel>
+                        <Controller
+                            name='gender'
+                            control={control}
+                            render={({onChange, value}) => (
+                                <IonSelect value={value} onIonChange={e => onChange(e.detail.value)}>
+                                    <IonSelectOption value="men">Hombre</IonSelectOption>
+                                    <IonSelectOption value="woman">Mujer</IonSelectOption>
+                                    <IonSelectOption value="other">Otro</IonSelectOption>
+                                </IonSelect>
+                            )}
+                        />
+                        <IonText color="danger">{errors && errors.gender?.message}</IonText>
+
                     </IonItem>
                     <IonItem>
                         <IonLabel position="floating">Fecha de nacimiento</IonLabel>

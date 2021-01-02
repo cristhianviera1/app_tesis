@@ -2,9 +2,10 @@ import React, {FunctionComponent, useEffect, useState} from 'react';
 import {IonButton, IonContent, IonHeader, IonIcon, IonSearchbar, IonToolbar} from '@ionic/react';
 import './Products.css';
 import Layout from "../../components/layout/Layout";
-import ProductsCard from "../../components/cards/products/Products-card";
+import ProductsCard, {ProductsCardInfo} from "../../components/cards/products/Products-card";
 import {cartOutline} from 'ionicons/icons';
 import {axiosConfig} from "../../components/helpers/axiosConfig";
+import {createGlobalState} from "react-hooks-global-state";
 
 export interface ProductCard {
     _id: string;
@@ -17,8 +18,23 @@ export interface ProductCard {
 const Products: FunctionComponent = () => {
     const [searchText, setSearchText] = useState('');
     const [loading, setLoading] = useState<boolean>(false)
+
+    const initialState: ProductsCardInfo[] = [];
+    const {useGlobalState} = createGlobalState({cartProducts: initialState})
+    const [productsInCart, setProductsInCart] = useGlobalState('cartProducts');
     const [products, setProducts] = useState<ProductCard[]>([]);
 
+    const addToCart = (product: ProductsCardInfo) => {
+        setProductsInCart((prevProduct) => [...prevProduct, product]);
+    };
+
+    const addQuantity = (productID: string) => {
+        const productIndex = productsInCart.findIndex((product: ProductsCardInfo) => product.id == productID);
+        const updatedProduct = productsInCart[productIndex];
+        updatedProduct.quantity += 1;
+        productsInCart.splice(productIndex, 1, updatedProduct);
+        setProductsInCart(productsInCart);
+    }
 
     const getProducts = () => {
         setLoading(true)
@@ -57,30 +73,17 @@ const Products: FunctionComponent = () => {
             </IonHeader>
             <IonContent fullscreen>
                 {
-                    searchText ?
-                        products.map((product) => {
-                            if (product.name.includes(searchText)) {
-                                return <ProductsCard
-                                    key={product._id}
-                                    id={product._id}
-                                    name={product.name}
-                                    image={product.image}
-                                    detail={product.detail.slice(0, 20)}
-                                    price={`$${product.price}`}
-                                />
-                            }
-                        })
-                        :
-                        products?.map((product) =>
-                            <ProductsCard
-                                key={product._id}
-                                id={product._id}
-                                name={product.name}
-                                image={product.image}
-                                detail={product.detail.slice(0, 20)}
-                                price={`$${product.price}`}
-                            />
-                        )
+                    products?.map((product) =>
+                        <ProductsCard
+                            key={product._id}
+                            id={product._id}
+                            name={product.name}
+                            image={product.image}
+                            detail={product.detail.slice(0, 20)}
+                            price={`$${product.price}`}
+                            quantity={0}
+                        />
+                    )
                 }
             </IonContent>
         </Layout>

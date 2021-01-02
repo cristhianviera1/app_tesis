@@ -46,7 +46,7 @@ const Profile: FunctionComponent = () => {
             setUploadingImage(true)
             axiosConfig().put('users/updateImage', {image: res})
                 .then(() => {
-                    toast.success('Foto de perfil actualizada exitósamente');
+                    toast.success('Foto de perfil actualizada exitosamente');
                     getProfileImage();
                 })
                 .catch(() => toast.error('No se ha podido actualizar la foto de perfil por favor vuelva a intentarlo más tarde'))
