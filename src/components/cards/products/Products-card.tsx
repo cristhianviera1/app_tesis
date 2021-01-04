@@ -2,28 +2,26 @@ import React, {FunctionComponent, useEffect, useState} from "react";
 import {IonButton, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle} from "@ionic/react";
 import './Products-card.css'
 import {useHistory} from "react-router-dom";
-import {createGlobalState} from "react-hooks-global-state";
+import useGlobal from "../../../hooks/globalShoppingCart";
 
 export interface ProductsCardInfo {
     id: string;
     name: string;
     image: string;
     detail: string;
-    price: string;
+    price: number;
     quantity: number;
 }
 
-
 const ProductsCard: FunctionComponent<ProductsCardInfo> = ({id, name, image, detail, price, quantity}) => {
     const history = useHistory();
-    const initialState: ProductsCardInfo[] = [];
-    const {useGlobalState} = createGlobalState({cartProducts: initialState})
-    const [products, setProducts] = useGlobalState('cartProducts');
+
     const [productAlreadyInCart, setAlreadyInCart] = useState<boolean>(false)
+    const [globalState, globalActions] = useGlobal();
 
     useEffect(() => {
-        setAlreadyInCart(products?.findIndex((product: ProductsCardInfo) => product.id == id) !== -1)
-    }, [products])
+        setAlreadyInCart(globalState.shoppingCart.findIndex((product: ProductsCardInfo) => product.id == id) !== -1)
+    }, [globalState])
 
     return (
         <IonCard
@@ -32,7 +30,7 @@ const ProductsCard: FunctionComponent<ProductsCardInfo> = ({id, name, image, det
         >
             <IonCardHeader onClick={() => history.push('/productDetail', id)}>
                 <img width="100%" height="100%" src={image}/>
-                <IonCardSubtitle>{price}</IonCardSubtitle>
+                <IonCardSubtitle>${price}</IonCardSubtitle>
                 <IonCardTitle>{name}</IonCardTitle>
             </IonCardHeader>
             <IonCardContent onClick={() => history.push('/productDetail', id)}>
@@ -41,16 +39,17 @@ const ProductsCard: FunctionComponent<ProductsCardInfo> = ({id, name, image, det
             {
                 !productAlreadyInCart &&
                 <IonButton className={"btn"} expand={"block"} onClick={() => {
-                }/*addToCart({
-                        id: id,
-                        name, image, detail, price, quantity: 1
-                    })*/}>Agregar al carrito
+                    globalActions.addProduct({
+                        id, name, image, detail, price, quantity: 1
+                    })
+                }}>Agregar al carrito
                 </IonButton>
             }
             {
                 productAlreadyInCart &&
                 <IonButton className={"btn"} expand={"block"} fill={'outline'} onClick={() => {
-                }/*addQuantity(id)*/}>
+                    globalActions.changeQuantity(id, true)
+                }}>
                     Añadir más
                 </IonButton>
             }

@@ -16,11 +16,12 @@ import {
 } from '@ionic/react';
 import './Profile.css';
 import Layout from "../../components/layout/Layout";
-import {cameraOutline, logInOutline, readerOutline, repeatOutline} from 'ionicons/icons';
+import {cameraOutline, logInOutline, readerOutline, repeatOutline, storefrontOutline} from 'ionicons/icons';
 import * as localStorage from "local-storage";
 import {axiosConfig} from "../../components/helpers/axiosConfig";
 import {CameraResultType, Plugins} from '@capacitor/core';
 import {toast, ToastContainer} from "react-toastify";
+import {useHistory} from "react-router-dom";
 
 const {Camera} = Plugins;
 
@@ -28,6 +29,7 @@ const Profile: FunctionComponent = () => {
     const user: any = localStorage.get('user');
     const [userImage, setUserImage] = useState<string>('')
     const [uploadingImage, setUploadingImage] = useState<boolean>(false)
+    const histoy = useHistory()
     const getProfileImage = () => {
         axiosConfig().get('auth/me')
             .then(({data}) => {
@@ -89,17 +91,26 @@ const Profile: FunctionComponent = () => {
                 <IonCardSubtitle style={{textAlign: 'center'}}>{`${user?.email}`}</IonCardSubtitle>
                 <br/>
                 <IonList className={"padding"} lines="none">
-                    <IonItem color="primary" button={true} href={"/passwordchange"} style={{borderRadius: '15px'}}>
+                    <IonItem color="primary" button={true} onClick={() => histoy.push('/passwordchange')}
+                             style={{borderRadius: '15px'}}>
                         <IonLabel>Cambiar contraseña</IonLabel>
                         <IonIcon slot="end" icon={repeatOutline}/>
                     </IonItem>
                     <br/>
-                    <IonItem color="primary" button={true} href={"/form"} style={{borderRadius: '15px'}}>
+                    <IonItem color="primary" button={true} onClick={() => histoy.push('/myShopping')}
+                             style={{borderRadius: '15px'}}>
+                        <IonLabel>Mis compras</IonLabel>
+                        <IonIcon slot="end" icon={storefrontOutline}/>
+                    </IonItem>
+                    <br/>
+                    <IonItem color="primary" button={true} onClick={() => histoy.push('/form')}
+                             style={{borderRadius: '15px'}}>
                         <IonLabel>Abrir encuesta</IonLabel>
                         <IonIcon slot="end" icon={readerOutline}/>
                     </IonItem>
                     <br/>
-                    <IonItem color="primary" button={true} href="/login" style={{borderRadius: '15px'}}>
+                    <IonItem color="primary" button={true} onClick={() => histoy.push('/login')}
+                             style={{borderRadius: '15px'}}>
                         <IonLabel>Cerrar sesión</IonLabel>
                         <IonIcon slot="end" icon={logInOutline}/>
                     </IonItem>

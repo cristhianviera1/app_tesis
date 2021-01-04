@@ -16,12 +16,9 @@ import {yupResolver} from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import {setLocale} from 'yup';
 import axios from 'axios';
-import {environment} from "../../enviroment/enviroment";
-import * as localStorage from "local-storage";
 import './Login.css'
 import {useHistory} from "react-router-dom";
 import {eye, eyeOff} from "ionicons/icons";
-import jwt_decode from "jwt-decode";
 
 
 interface LoginValues {
@@ -58,15 +55,15 @@ const Login: FunctionComponent = () => {
     })
     const onSubmit = (data: LoginValues) => {
         setLoading(true);
-        console.log(data);
-        axios.post(`${environment.apiUrl}auth/sign-in`, data)
+        axios.get(`https://jsonplaceholder.typicode.com/todos`)
             .then(({data}) => {
-                localStorage.set('token', data.accessToken);
+                setLoginError(JSON.stringify(data))
+                /*localStorage.set('token', data.accessToken);
                 localStorage.set('user', jwt_decode(data.accessToken))
-                history.push('/products')
+                history.push('/products')*/
             })
-            .catch(() => {
-                setLoginError("Email o contraseña incorrectos")
+            .catch((error) => {
+                setLoginError(JSON.stringify(error))
             })
             .finally(() => setLoading(false))
     }

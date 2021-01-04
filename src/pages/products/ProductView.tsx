@@ -10,7 +10,7 @@ import {
     IonCardTitle,
     IonContent,
     IonHeader,
-    IonLabel,
+    IonSpinner,
     IonToolbar
 } from '@ionic/react';
 import './ProductView.css';
@@ -18,18 +18,20 @@ import Layout from "../../components/layout/Layout";
 import {useHistory} from "react-router-dom";
 import {axiosConfig} from "../../components/helpers/axiosConfig";
 import {ProductCard} from "./Products";
+import useGlobal from "../../hooks/globalShoppingCart";
+import {ProductsCardInfo} from "../../components/cards/products/Products-card";
 
 const ProductView: FunctionComponent = () => {
-    const [searchText, setSearchText] = useState('');
     const [loading, setLoading] = useState<boolean>(false);
-    const [productId, setProductId] = useState();
     const [product, setProduct] = useState<ProductCard>();
+    const [productAlreadyInCart, setAlreadyInCart] = useState<boolean>(false)
+    const [globalState, globalActions] = useGlobal();
     const history = useHistory();
 
-    const getProductDetail = (id:string) => {
+    const getProductDetail = (id: string) => {
         setLoading(true)
         axiosConfig().get(`products/${id}`)
-            .then(({data})=>{
+            .then(({data}) => {
                 setProduct({
                     _id: data._id,
                     name: data.name,
@@ -37,24 +39,40 @@ const ProductView: FunctionComponent = () => {
                     detail: data.detail,
                     price: data.price,
                 })
-                setLoading(true);
             })
-            .catch(()=>{
-                setLoading(true)
+            .catch(() => {
             })
+            .finally(() => setLoading(false))
     }
     useEffect(() => {
         const id: any = history.location.state;
-        setProductId(id);
         !product && getProductDetail(id)
-    }, [history])
+        setAlreadyInCart(globalState.shoppingCart.findIndex((product: ProductsCardInfo) => product.id == id) !== -1)
+    }, [history, globalState])
+
+    if (!product || loading) {
+        return (
+            <Layout>
+                <IonHeader>
+                    <IonToolbar>
+                        <IonButtons slot="start">
+                            <IonBackButton defaultHref="/products"/>
+                        </IonButtons>
+                    </IonToolbar>
+                </IonHeader>
+                <IonContent fullscreen>
+                    <IonSpinner name="circles"/>
+                </IonContent>
+            </Layout>
+        );
+    }
+
     return (
         <Layout>
             <IonHeader>
                 <IonToolbar>
                     <IonButtons slot="start">
-                        <IonBackButton defaultHref="/products"/>
-                        <IonLabel>{product?.name}</IonLabel>
+                        <IonBackButton text={product?.name} defaultHref="/products"/>
                     </IonButtons>
                 </IonToolbar>
             </IonHeader>
@@ -69,8 +87,25 @@ const ProductView: FunctionComponent = () => {
                     <IonCardContent>
                         {product?.detail}
                     </IonCardContent>
-                    <IonButton className={"btn"} expand={"block"} href="/login">Agregar al
-                        carrito</IonButton>
+                    {
+                        !productAlreadyInCart &&
+                        <IonButton className={"btn"} expand={"block"} onClick={() => {
+                            globalActions.addProduct({
+                                ...product,
+                                id: product?._id,
+                                quantity: 1
+                            })
+                        }}>Agregar al carrito
+                        </IonButton>
+                    }
+                    {
+                        productAlreadyInCart &&
+                        <IonButton className={"btn"} expand={"block"} fill={'outline'} onClick={() => {
+                            globalActions.changeQuantity(product?._id, true)
+                        }}>
+                            Añadir más
+                        </IonButton>
+                    }
                 </IonCard>
             </IonContent>
         </Layout>

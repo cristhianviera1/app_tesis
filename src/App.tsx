@@ -34,6 +34,7 @@ import RecoverPassword from "./pages/recoverPassword/RecoverPassword";
 import PasswordChange from "./pages/recoverPassword/PasswordChange";
 import ChatDetail from "./pages/chat/ChatDetail";
 import BranchOffices from "./pages/branchOffices/BranchOffices";
+import MyShopping from "./pages/myShopping/MyShopping";
 
 const App: React.FC = () => (
     <IonApp>
@@ -49,6 +50,7 @@ const App: React.FC = () => (
                 <Route path="/profile" component={Profile} exact={true}/>
                 <Route path="/form" component={Form} exact={true}/>
                 <Route path="/cart" component={Cart} exact={true}/>
+                <Route path="/myShopping" component={MyShopping} exact={true}/>
                 <Route path="/productDetail" component={Id} exact={true}/>
                 <Route path="/recoverpassword" component={RecoverPassword} exact={true}/>
                 <Route path="/passwordchange" component={PasswordChange} exact={true}/>

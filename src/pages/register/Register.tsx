@@ -24,10 +24,10 @@ import {setLocale} from 'yup';
 import './Register.css'
 import {Controller, useForm} from "react-hook-form";
 import moment from "moment";
-import {axiosConfig} from "../../components/helpers/axiosConfig";
 import {useHistory} from "react-router";
 import {toast, ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import axios from "axios";
 
 interface RegisterValues {
     name: string;
@@ -64,7 +64,7 @@ const Register: FunctionComponent = () => {
 
     const onSubmit = (data: RegisterValues) => {
         setLoading(true)
-        axiosConfig().post('auth/register', {
+        axios.post('http://192.168.100.24:3001/auth/register', {
             name: data.name,
             surname: data.surname,
             email: data.email,

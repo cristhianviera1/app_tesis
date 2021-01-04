@@ -42,8 +42,8 @@ const BranchOfficeCard: FunctionComponent<BranchOfficeValues> =
                         `}
                         allowFullScreen
                     />
-                    <IonCardSubtitle>{`${city} ${email}`}</IonCardSubtitle>
                     <IonCardTitle>{name}</IonCardTitle>
+                    <IonCardSubtitle>{`${city} ${email}`}</IonCardSubtitle>
                 </IonCardHeader>
                 <IonCardContent>
                     {firstAddress}<br/>

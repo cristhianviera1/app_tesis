@@ -1,57 +1,71 @@
-import React, {FunctionComponent, useEffect, useState} from "react";
+import React, {FunctionComponent} from "react";
 import {IonButton, IonCol, IonIcon, IonItem, IonLabel, IonRow, IonText} from "@ionic/react"
-import {addCircle, closeCircle, removeCircle} from "ionicons/icons";
-import * as localStorage from "local-storage";
+import {addCircle, closeCircle, removeCircle, trashOutline} from "ionicons/icons";
+import useGlobal from "../../../hooks/globalShoppingCart";
 
 export interface CartCardInfo {
+    id: string;
     name: string;
     image: string;
     detail: string;
+    quantity: number;
 }
-const CartCard: FunctionComponent<CartCardInfo> = ({name, image,detail}) => {
-    const [number, setNumber] = useState<number>(1);
 
+const CartCard: FunctionComponent<CartCardInfo> = ({id, name, image, detail, quantity}) => {
+    const [globalState, globalActions] = useGlobal();
+    const productIndex = globalState.shoppingCart.findIndex((product) => product.id == id);
 
-
-
-    const cartProducts = localStorage.get('products');
-
-
-    useEffect(() => {
-        console.log(cartProducts)
-    }, [number])
-    return(
+    return (
         <>
-        <IonItem>
-            <IonRow style={{width:'100%'}}>
-                <IonCol size={"5"}>
-                    <img width="auto" height="100px"
-                         src={image}/>
-                </IonCol>
-                <IonCol>
-                    <IonLabel style={{minWidth:'100%'}}>
-                        <h2 style={{fontWeight: "bold"}}>{name}</h2>
-                        <p>{detail}</p>
-                    </IonLabel>
-                    <IonRow style={{display:'flex', justifyContent:'flex-end', width:'100%', alignItems:'center'}}>
-                        <IonButton color={'danger'} fill="clear" disabled={number == 1}
-                                   onClick={() => setNumber(number - 1)}>
-                            <IonIcon slot="icon-only" icon={removeCircle}/>
-                        </IonButton>
-                        <IonText>{number}</IonText>
-                        <IonButton color={'secondary'} fill="clear" disabled={number == 50}
-                                   onClick={() => setNumber(number + 1)}>
-                            <IonIcon slot="icon-only" icon={addCircle}/>
-                        </IonButton>
-                    </IonRow>
-                </IonCol>
-                <IonButton  color={'danger'} fill={'clear'} style={{marginRight:"-14px"}}>
-                    <IonIcon slot="icon-only" icon={closeCircle}/>
-                </IonButton>
-            </IonRow>
-        </IonItem>
-    <IonButton className={"btn"} expand={"block"}>Agregar al carrito</IonButton>
-            </>
+            <IonItem>
+                <IonRow style={{width: '100%'}}>
+                    <IonCol size={"5"}>
+                        <img width="auto" height="100px"
+                             src={image}/>
+                    </IonCol>
+                    <IonCol size={'7'}>
+                        <IonLabel>
+                            <h2 style={{
+                                fontWeight: "bold",
+                                whiteSpace: 'pre-wrap',
+                                paddingLeft: '10%',
+                            }}>{name}</h2>
+                            <p style={{whiteSpace: 'pre-wrap'}}>
+                                {detail}
+                            </p>
+                        </IonLabel>
+                        <IonRow
+                            style={{display: 'flex', justifyContent: 'flex-end', width: '100%', alignItems: 'center'}}>
+                            {
+                                <IonButton color={'danger'} fill="clear"
+                                           onClick={() => globalActions.changeQuantity(id, false)}>
+                                    <IonIcon slot="icon-only"
+                                             icon={globalState.shoppingCart[productIndex].quantity == 1 ?
+                                                 trashOutline :
+                                                 removeCircle
+                                             }/>
+                                </IonButton>
+                            }
+                            <IonText>{quantity}</IonText>
+                            <IonButton color={'secondary'} fill="clear"
+                                       disabled={globalState.shoppingCart[productIndex].quantity == 50}
+                                       onClick={() => globalActions.changeQuantity(id, true)}>
+                                <IonIcon slot="icon-only" icon={addCircle}/>
+                            </IonButton>
+                        </IonRow>
+                    </IonCol>
+                    <IonButton color={'danger'}
+                               fill={'clear'}
+                               onClick={() => {
+                                   globalActions.removeProduct(id)
+                               }}
+                               style={{position: 'absolute', right: 0}}
+                    >
+                        <IonIcon slot="icon-only" icon={closeCircle}/>
+                    </IonButton>
+                </IonRow>
+            </IonItem>
+        </>
     )
 }
 export default CartCard;

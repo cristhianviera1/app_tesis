@@ -1,9 +1,8 @@
 import axios from 'axios';
-import {environment} from "../../enviroment/enviroment";
 import * as localStorage from "local-storage";
 
 export const axiosConfig = () => axios.create({
-    baseURL: environment.apiUrl,
+    baseURL: 'http://192.168.100.24:3000/',
     headers: {
         Authorization: `Bearer ${localStorage.get('token')}`,
     },
