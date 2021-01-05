@@ -13,7 +13,7 @@ export interface CartCardInfo {
 
 const CartCard: FunctionComponent<CartCardInfo> = ({id, name, image, detail, quantity}) => {
     const [globalState, globalActions] = useGlobal();
-    const productIndex = globalState.shoppingCart.findIndex((product) => product.id == id);
+    const productIndex = globalState.shoppingCart.findIndex((product: any) => product.id == id);
 
     return (
         <>
