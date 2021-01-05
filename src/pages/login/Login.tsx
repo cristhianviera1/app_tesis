@@ -19,6 +19,8 @@ import axios from 'axios';
 import './Login.css'
 import {useHistory} from "react-router-dom";
 import {eye, eyeOff} from "ionicons/icons";
+import jwt_decode from "jwt-decode";
+import {environment} from "../../enviroment/enviroment";
 
 
 interface LoginValues {
@@ -55,22 +57,21 @@ const Login: FunctionComponent = () => {
     })
     const onSubmit = (data: LoginValues) => {
         setLoading(true);
-        axios.get(`https://jsonplaceholder.typicode.com/todos`)
+        axios.post(`${environment.apiUrl}auth/sign-in`, data)
             .then(({data}) => {
-                setLoginError(JSON.stringify(data))
-                /*localStorage.set('token', data.accessToken);
+                localStorage.set('token', data.accessToken);
                 localStorage.set('user', jwt_decode(data.accessToken))
-                history.push('/products')*/
+                history.push('/products')
             })
-            .catch((error) => {
-                setLoginError(JSON.stringify(error))
+            .catch(() => {
+                setLoginError("Correo electrónico o conteaseña incorrectas")
             })
             .finally(() => setLoading(false))
     }
 
     return (
         <IonContent style={{textAlign: 'center'}}>
-            <img style={{height: '300px', width: '300px'}} src='assets/logo_circle.png'/>
+            <img style={{height: '300px', width: '300px'}} src='assets/logo_circle.png' alt={'logo'}/>
             <IonItem>
                 <IonLabel position="floating">Email</IonLabel>
                 <Controller
