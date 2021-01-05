@@ -21,6 +21,7 @@ import {useHistory} from "react-router-dom";
 import {eye, eyeOff} from "ionicons/icons";
 import jwt_decode from "jwt-decode";
 import {environment} from "../../enviroment/enviroment";
+import * as localStorage from 'local-storage';
 
 
 interface LoginValues {
@@ -64,7 +65,7 @@ const Login: FunctionComponent = () => {
                 history.push('/products')
             })
             .catch(() => {
-                setLoginError("Correo electrónico o conteaseña incorrectas")
+                setLoginError("Correo electrónico o contraseña incorrectas")
             })
             .finally(() => setLoading(false))
     }
