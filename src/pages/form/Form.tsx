@@ -10,6 +10,7 @@ import {
     IonLabel,
     IonList,
     IonListHeader,
+    IonPage,
     IonRadio,
     IonRadioGroup,
     IonToolbar
@@ -19,7 +20,7 @@ import './Form.css'
 
 const Form: FunctionComponent = () => {
     return (
-        <>
+        <IonPage>
             <IonHeader>
                 <IonToolbar>
                     <IonButtons slot="start">
@@ -107,7 +108,7 @@ const Form: FunctionComponent = () => {
                 </IonCard>
                 <IonButton expand="block">Guardar</IonButton>
             </IonList>
-        </>
+        </IonPage>
     );
 };
 

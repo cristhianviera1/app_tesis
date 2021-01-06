@@ -7,6 +7,7 @@ import {
     IonInput,
     IonItem,
     IonLabel,
+    IonPage,
     IonRow,
     IonSpinner,
     IonText,
@@ -71,64 +72,66 @@ const Login: FunctionComponent = () => {
     }
 
     return (
-        <IonContent style={{textAlign: 'center'}}>
-            <img style={{height: '300px', width: '300px'}} src='assets/logo_circle.png' alt={'logo'}/>
-            <IonItem>
-                <IonLabel position="floating">Email</IonLabel>
-                <Controller
-                    name='email'
-                    control={control}
-                    render={({onChange, value}) => (
-                        <IonInput
-                            value={value}
-                            className="input-register"
-                            type={'email'}
-                            onIonChange={(e) => onChange(e.detail.value)}/>
-                    )}
-                />
-                <IonText color="danger">{errors && errors.email?.message}</IonText>
-            </IonItem>
-            <IonItem>
-                <IonLabel position="floating">Contraseña</IonLabel>
-                <Controller
-                    name='password'
-                    control={control}
-                    render={({onChange, value}) => (
-                        <IonRow style={{width: '100%'}}>
+        <IonPage>
+            <IonContent style={{textAlign: 'center'}}>
+                <img style={{height: '300px', width: '300px'}} src='assets/logo_circle.png' alt={'logo'}/>
+                <IonItem>
+                    <IonLabel position="floating">Email</IonLabel>
+                    <Controller
+                        name='email'
+                        control={control}
+                        render={({onChange, value}) => (
                             <IonInput
                                 value={value}
                                 className="input-register"
-                                type={secureEntry ? 'password' : 'text'}
-                                onIonChange={(e) => onChange(e.detail.value)}
-                            />
-                            <IonButton fill={'clear'} onClick={() => setSecureEntry(!secureEntry)}>
-                                {
-                                    secureEntry ?
-                                        <IonIcon slot="icon-only" icon={eye}/> :
-                                        <IonIcon slot="icon-only" icon={eyeOff}/>
-                                }
+                                type={'email'}
+                                onIonChange={(e) => onChange(e.detail.value)}/>
+                        )}
+                    />
+                    <IonText color="danger">{errors && errors.email?.message}</IonText>
+                </IonItem>
+                <IonItem>
+                    <IonLabel position="floating">Contraseña</IonLabel>
+                    <Controller
+                        name='password'
+                        control={control}
+                        render={({onChange, value}) => (
+                            <IonRow style={{width: '100%'}}>
+                                <IonInput
+                                    value={value}
+                                    className="input-register"
+                                    type={secureEntry ? 'password' : 'text'}
+                                    onIonChange={(e) => onChange(e.detail.value)}
+                                />
+                                <IonButton fill={'clear'} onClick={() => setSecureEntry(!secureEntry)}>
+                                    {
+                                        secureEntry ?
+                                            <IonIcon slot="icon-only" icon={eye}/> :
+                                            <IonIcon slot="icon-only" icon={eyeOff}/>
+                                    }
 
-                            </IonButton>
-                        </IonRow>
-                    )}
-                />
-                <IonText color="danger">{errors && errors.password?.message}</IonText>
-            </IonItem>
-            {loginError && <IonText color="danger">{loginError}</IonText>}
-            <IonButton
-                onClick={handleSubmit(onSubmit)}
-                expand="block"
-                disabled={loading}
-            >
-                {loading ? <IonSpinner name="lines"/> : "Iniciar Sesión"}
-            </IonButton>
+                                </IonButton>
+                            </IonRow>
+                        )}
+                    />
+                    <IonText color="danger">{errors && errors.password?.message}</IonText>
+                </IonItem>
+                {loginError && <IonText color="danger">{loginError}</IonText>}
+                <IonButton
+                    onClick={handleSubmit(onSubmit)}
+                    expand="block"
+                    disabled={loading}
+                >
+                    {loading ? <IonSpinner name="lines"/> : "Iniciar Sesión"}
+                </IonButton>
 
-            <IonFooter style={{paddingTop: '30px'}}>
-                ¿No tienes una cuenta?<a onClick={() => history.push('/register')}>{" Registrarse"}</a>
-                <br/>
-                <a onClick={() => history.push('/recoverpassword')}>Recuperar contraseña</a>
-            </IonFooter>
-        </IonContent>
+                <IonFooter style={{paddingTop: '30px'}}>
+                    ¿No tienes una cuenta?<a onClick={() => history.push('/register')}>{" Registrarse"}</a>
+                    <br/>
+                    <a onClick={() => history.push('/recoverpassword')}>Recuperar contraseña</a>
+                </IonFooter>
+            </IonContent>
+        </IonPage>
     );
 };
 

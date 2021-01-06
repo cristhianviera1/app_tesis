@@ -22,7 +22,7 @@ const ChatItem: FunctionComponent<ListChatInfo> = ({
             history.push("/chatdetail", {name: name, id: id})
         }}>
             <IonAvatar slot="start">
-                <img src={image ? image : "/assets/profilePicture.png"} alt={'profile_picture'}/>
+                <img src={image ? image : "/assets/avatar.svg"} alt={'profile_picture'}/>
             </IonAvatar>
             <IonLabel>
                 <h2>{name}</h2>

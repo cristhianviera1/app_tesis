@@ -1,4 +1,4 @@
-import React, {FunctionComponent, useEffect, useRef, useState} from 'react';
+import React, {FunctionComponent, useEffect, useMemo, useRef, useState} from 'react';
 import {
     IonBackButton,
     IonButton,
@@ -24,6 +24,7 @@ import moment from "moment";
 import {axiosConfig} from "../../components/helpers/axiosConfig";
 import './ChatDetail.css';
 import {CameraResultType, Plugins} from '@capacitor/core';
+import {useHistory} from "react-router";
 
 const {Camera, Photos} = Plugins;
 
@@ -43,9 +44,10 @@ const ChatDetail: FunctionComponent = () => {
     const [newMessage, setNewMessage] = useState<string>('')
     const [chatsHistory, setChatsHistory] = useState<ChatDetail[]>([]);
     const [loading, setLoading] = useState<boolean>(false);
-    const socket = socketIOClient(environment.apiUrl);
+    const socket = useMemo(() => socketIOClient(environment.apiUrl), [])
     const user: any = localStorage.get('user');
     const location: any = useLocation()
+    const history = useHistory();
     const contentRef = useRef<HTMLIonContentElement | null>(null);
     const scrollToEnd = () => {
         contentRef.current && contentRef.current.scrollToBottom();
@@ -104,7 +106,7 @@ const ChatDetail: FunctionComponent = () => {
     const openCamera = () => {
         Camera.getPhoto({
             quality: 90,
-            allowEditing: true,
+            allowEditing: false,
             resultType: CameraResultType.Base64,
 
         }).then((image) => {
@@ -127,8 +129,12 @@ const ChatDetail: FunctionComponent = () => {
             <IonHeader>
                 <IonToolbar>
                     <IonToolbar>
-                        <IonButtons slot="start">
-                            <IonBackButton defaultHref="/chat"/>
+                        <IonButtons slot="start" onClick={() => {
+                            socket.close()
+                            history.push('/chat'
+                            )
+                        }}>
+                            <IonBackButton/>
                             <IonLabel>{location?.state?.name}</IonLabel>
                         </IonButtons>
                     </IonToolbar>

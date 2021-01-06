@@ -17,6 +17,7 @@ import {
     IonInput,
     IonItem,
     IonLabel,
+    IonPage,
     IonRow,
     IonSpinner,
     IonText,
@@ -81,7 +82,7 @@ const PasswordChange: FunctionComponent = () => {
     }
 
     return (
-        <>
+        <IonPage>
             <IonHeader>
                 <IonToolbar>
                     <IonButtons slot="start">
@@ -183,7 +184,7 @@ const PasswordChange: FunctionComponent = () => {
                 </IonCardContent>
             </IonCard>
             <ToastContainer/>
-        </>
+        </IonPage>
     );
 };
 

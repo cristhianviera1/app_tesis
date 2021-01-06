@@ -28,6 +28,7 @@ import {useHistory} from "react-router";
 import {toast, ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from "axios";
+import {environment} from "../../enviroment/enviroment";
 
 interface RegisterValues {
     name: string;
@@ -64,7 +65,7 @@ const Register: FunctionComponent = () => {
 
     const onSubmit = (data: RegisterValues) => {
         setLoading(true)
-        axios.post('http://192.168.100.24:3001/auth/register', {
+        axios.post(`${environment.apiUrl}/auth/register`, {
             name: data.name,
             surname: data.surname,
             email: data.email,

@@ -1,25 +1,29 @@
 import React, {FunctionComponent, useState} from "react";
-import {useHistory} from "react-router-dom";
 import {
     IonBackButton,
-    IonButton, IonButtons,
+    IonButton,
+    IonButtons,
     IonCard,
     IonCardContent,
     IonCardHeader,
-    IonCardTitle, IonHeader, IonIcon,
+    IonHeader,
+    IonIcon,
     IonInput,
     IonItem,
-    IonLabel, IonSpinner,
-    IonText, IonToolbar
+    IonLabel,
+    IonSpinner,
+    IonText,
+    IonToolbar
 } from "@ionic/react";
 import {Controller, useForm} from "react-hook-form";
 import {toast, ToastContainer} from "react-toastify";
-import {setLocale} from "yup";
 import * as yup from "yup";
+import {setLocale} from "yup";
 import {yupResolver} from "@hookform/resolvers/yup";
 import {mailUnreadOutline} from "ionicons/icons";
 import './RecoverPassword.css'
-import {axiosConfig} from "../../components/helpers/axiosConfig";
+import axios from "axios";
+import {environment} from "../../enviroment/enviroment";
 
 interface RecoverValues {
     email: string;
@@ -51,7 +55,7 @@ const RecoverPassword: FunctionComponent = () => {
     })
     const onSubmit = (data: RecoverValues) => {
         setLoading(true)
-        axiosConfig().post('auth/register', data)
+        axios.get(`${environment.apiUrl}auth/recover/${data.email}`)
             .then(() => {
                 toast.success("Su nueva contraseña será enviada a su correo electrónico.")
             })

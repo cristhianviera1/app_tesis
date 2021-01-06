@@ -16,7 +16,7 @@ import {
 } from '@ionic/react';
 import './Profile.css';
 import Layout from "../../components/layout/Layout";
-import {cameraOutline, logInOutline, readerOutline, repeatOutline, storefrontOutline} from 'ionicons/icons';
+import {cameraOutline, logInOutline, repeatOutline, storefrontOutline} from 'ionicons/icons';
 import * as localStorage from "local-storage";
 import {axiosConfig} from "../../components/helpers/axiosConfig";
 import {CameraResultType, Plugins} from '@capacitor/core';
@@ -40,7 +40,7 @@ const Profile: FunctionComponent = () => {
     const openCamera = () => {
         Camera.getPhoto({
             quality: 90,
-            allowEditing: true,
+            allowEditing: false,
             resultType: CameraResultType.Base64,
 
         }).then((image) => {
@@ -101,12 +101,6 @@ const Profile: FunctionComponent = () => {
                              style={{borderRadius: '15px'}}>
                         <IonLabel>Mis compras</IonLabel>
                         <IonIcon slot="end" icon={storefrontOutline}/>
-                    </IonItem>
-                    <br/>
-                    <IonItem color="primary" button={true} onClick={() => histoy.push('/form')}
-                             style={{borderRadius: '15px'}}>
-                        <IonLabel>Abrir encuesta</IonLabel>
-                        <IonIcon slot="end" icon={readerOutline}/>
                     </IonItem>
                     <br/>
                     <IonItem color="primary" button={true} onClick={() => histoy.push('/login')}
