@@ -12,12 +12,18 @@ type MyAssociatedActions = {
     addProduct: (product: ProductsCardInfo) => void;
     changeQuantity: (productID: string, isAdd: boolean) => void;
     removeProduct: (productID: string) => void;
+    cleanCart: () => void;
 };
 const addProduct = (
     store: Store<InitialCartType, MyAssociatedActions>,
     product: ProductsCardInfo
 ) => {
     store.setState({shoppingCart: [...store.state.shoppingCart, product]});
+};
+const cleanCart = (
+    store: Store<InitialCartType, MyAssociatedActions>,
+) => {
+    store.setState({shoppingCart: []});
 };
 const changeQuantity = (
     store: Store<InitialCartType, MyAssociatedActions>,
@@ -48,7 +54,8 @@ const removeProduct = (
 const actions = {
     addProduct,
     changeQuantity,
-    removeProduct
+    removeProduct,
+    cleanCart
 }
 const useGlobal = globalHook<InitialCartType, MyAssociatedActions>(React, initialCartValue, actions);
 

@@ -74,8 +74,9 @@ const Login: FunctionComponent = () => {
     return (
         <IonPage>
             <IonContent style={{textAlign: 'center'}}>
+                <div style={{flexDirection:'column',display:'flex', justifyContent:'center', alignItems:'center'}}>
                 <img style={{height: '300px', width: '300px'}} src='assets/logo_circle.png' alt={'logo'}/>
-                <IonItem>
+                <IonItem style={{width:'90%', marginLeft:'-5%'}}>
                     <IonLabel position="floating">Email</IonLabel>
                     <Controller
                         name='email'
@@ -90,7 +91,7 @@ const Login: FunctionComponent = () => {
                     />
                     <IonText color="danger">{errors && errors.email?.message}</IonText>
                 </IonItem>
-                <IonItem>
+                    <IonItem style={{width:'90%'}}>
                     <IonLabel position="floating">Contraseña</IonLabel>
                     <Controller
                         name='password'
@@ -120,11 +121,12 @@ const Login: FunctionComponent = () => {
                 <IonButton
                     onClick={handleSubmit(onSubmit)}
                     expand="block"
+                    style={{width:'90%'}}
                     disabled={loading}
                 >
                     {loading ? <IonSpinner name="lines"/> : "Iniciar Sesión"}
                 </IonButton>
-
+                </div>
                 <IonFooter style={{paddingTop: '30px'}}>
                     ¿No tienes una cuenta?<a onClick={() => history.push('/register')}>{" Registrarse"}</a>
                     <br/>

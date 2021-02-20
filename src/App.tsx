@@ -35,6 +35,7 @@ import PasswordChange from "./pages/recoverPassword/PasswordChange";
 import ChatDetail from "./pages/chat/ChatDetail";
 import BranchOffices from "./pages/branchOffices/BranchOffices";
 import MyShopping from "./pages/myShopping/MyShopping";
+import {ToastContainer} from "react-toastify";
 
 const App: React.FC = () => (
     <IonApp>
@@ -57,6 +58,7 @@ const App: React.FC = () => (
                 <Route path={'/'} render={() => <Redirect to={'/login'}/>} exact={true}/>
             </IonRouterOutlet>
         </IonReactRouter>
+        <ToastContainer />
     </IonApp>
 );
 

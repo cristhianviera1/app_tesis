@@ -90,6 +90,7 @@ const Products: FunctionComponent = () => {
                     <IonRefresherContent>
                     </IonRefresherContent>
                 </IonRefresher>
+                <div style={{marginBottom:'20%'}}>
                 {
                     products?.map((product) =>
                         <ProductsCard
@@ -103,6 +104,7 @@ const Products: FunctionComponent = () => {
                         />
                     )
                 }
+                </div>
             </IonContent>
         </Layout>
     );

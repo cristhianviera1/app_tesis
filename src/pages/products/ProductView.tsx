@@ -46,6 +46,7 @@ const ProductView: FunctionComponent = () => {
     }
     useEffect(() => {
         const id: any = history.location.state;
+        console.log(id);
         !product && getProductDetail(id)
         setAlreadyInCart(globalState.shoppingCart.findIndex((product: ProductsCardInfo) => product.id == id) !== -1)
     }, [history, globalState])
@@ -60,8 +61,8 @@ const ProductView: FunctionComponent = () => {
                         </IonButtons>
                     </IonToolbar>
                 </IonHeader>
-                <IonContent fullscreen>
-                    <IonSpinner name="circles"/>
+                <IonContent style={{textAlign: 'center'}}>
+                    <IonSpinner name="lines" style={{marginLeft: 'auto', marginRight: 'auto', marginTop: '50%'}}/>
                 </IonContent>
             </Layout>
         );
@@ -77,7 +78,7 @@ const ProductView: FunctionComponent = () => {
                 </IonToolbar>
             </IonHeader>
             <IonContent fullscreen>
-                <IonCard className={"product-card"}>
+                <IonCard className={"product-card"} style={{marginBottom:'20%'}}>
                     <IonCardHeader>
                         <img width="100%" height="100%"
                              src={product?.image}/>

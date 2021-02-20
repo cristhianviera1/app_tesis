@@ -74,7 +74,8 @@ const Profile: FunctionComponent = () => {
                         borderRadius: '50%',
                         width: '200px',
                         height: '200px',
-                        position: 'relative'
+                        position: 'relative',
+                        border: '2px solid #3880FF'
                     }}>
                         <img src={userImage ? userImage : 'assets/avatar.svg'} alt={'foto de perfil'}/>
                         {
@@ -110,7 +111,6 @@ const Profile: FunctionComponent = () => {
                     </IonItem>
                 </IonList>
             </IonContent>
-            <ToastContainer/>
         </Layout>
     );
 };

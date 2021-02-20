@@ -1,6 +1,6 @@
 import React, {FunctionComponent, useEffect, useState} from "react";
 import Layout from "../../components/layout/Layout";
-import {IonContent, IonHeader, IonTitle, IonToolbar} from "@ionic/react";
+import {IonBackButton, IonButtons, IonContent, IonHeader, IonSpinner, IonToolbar} from "@ionic/react";
 import {axiosConfig} from "../../components/helpers/axiosConfig";
 import {ProductsCardInfo} from "../../components/cards/products/Products-card";
 import MyShoppingCard from "../../components/cards/myShopping/MyShopping-card";
@@ -46,13 +46,12 @@ const MyShopping: FunctionComponent = () => {
                         createdAt: cart.created_at,
                         products: cart.products.map((product: any) => ({
                             ...product.product,
+                            id: product.product._id,
+                            _id: undefined,
                             quantity: product.quantity
                         })),
                         voucher: cart.voucher
                     })));
-                    /*setMyShopping(data.map((cart:any)=>({
-
-                    })))                    */
                 })
                 .catch(() => {
 
@@ -62,28 +61,59 @@ const MyShopping: FunctionComponent = () => {
     }
 
     useEffect(() => {
-        getMyShopping();
-    }, [])
+        if (!myShopping) {
+            getMyShopping();
+        }
+    }, [myShopping])
 
+    if (myShopping && myShopping?.length <= 0 && !loading) {
+        return (
+            <Layout>
+                <IonHeader>
+                    <IonToolbar>
+                        <IonButtons slot="start">
+                            <IonBackButton text={'Tus compras'} defaultHref="/profile"/>
+                        </IonButtons>
+                    </IonToolbar>
+                </IonHeader>
+                <IonContent>
+                    <div style={{
+                        'position': 'absolute',
+                        'left': '50%',
+                        'top': '50%',
+                        'transform': 'translate(-50%, -50%)',
+                    }}>
+                        <img src={'assets/no-product-found.png'} alt={'Aún no has agregado productos'}/>
+                    </div>
+                </IonContent>
+            </Layout>
+        );
+    }
 
     return (
         <Layout>
             <IonHeader>
                 <IonToolbar>
-                    <IonTitle>Mis compras</IonTitle>
+                    <IonButtons slot="start">
+                        <IonBackButton text={'Mis compras'} defaultHref="/profile"/>
+                    </IonButtons>
                 </IonToolbar>
             </IonHeader>
-            <IonContent>
+            <IonContent style={{textAlign: 'center'}}>
+                {loading &&
+                <IonSpinner name="lines" style={{marginLeft: 'auto', marginRight: 'auto', marginTop: '50%'}}/>
+                }
                 {
-                    myShopping?.map((cart, index) => (
+                    !loading && myShopping?.map((cart, index) => (
                         <MyShoppingCard
                             key={index}
-                            position={index + 1}
-                            id={cart.id}
-                            createdAt={cart.createdAt}
-                            products={cart.products}
-                            voucher={cart.voucher}
-                            total={cart.total}
+                            initialValues={{
+                                ...cart,
+                                position: index + 1
+                            }}
+                            onSend={() =>
+                                getMyShopping()
+                            }
                         />
                     ))
                 }

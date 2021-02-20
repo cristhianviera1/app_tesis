@@ -4,13 +4,15 @@ import CartCard from "../../components/cards/cart/Cart-card";
 import useGlobal from "../../hooks/globalShoppingCart";
 import Layout from "../../components/layout/Layout";
 import {axiosConfig} from "../../components/helpers/axiosConfig";
-import {toast, ToastContainer} from "react-toastify";
+import {toast} from "react-toastify";
+import {useHistory} from "react-router-dom";
 
 const Cart: FunctionComponent = () => {
-    const [globalState] = useGlobal();
+    const [globalState, globalActions] = useGlobal();
     const [loading, setLoading] = useState<boolean>(false)
     const [confirmModal, setConfirmModal] = useState<boolean>(false);
     const [totalAmount, setTotalAmount] = useState<number>(0)
+    const history = useHistory()
 
     const submitProducts = () => {
         if (window !== undefined) {
@@ -22,15 +24,17 @@ const Cart: FunctionComponent = () => {
                 }))
             })
                 .then(() => {
-                    return toast.success("Su solicitud ha sido enviada con éxito, por favor suba el comprobante de compra desde su perfil en la opción de compras realizadas");
+                    globalActions.cleanCart();
+                    setLoading(false)
+                    toast.success("Su solicitud ha sido enviada con éxito, por favor suba el comprobante de compra desde su perfil en la opción de compras realizadas")
                 })
                 .catch((error) => {
+                    setLoading(false)
                     if (error?.response?.data?.message) {
                         return toast.error(error?.response?.data?.message);
                     }
                     return toast.error("No se ha podido terminar la solicitud, por favor intentelo más tarde");
                 })
-                .finally(() => setLoading(false))
         }
     }
 
@@ -48,7 +52,7 @@ const Cart: FunctionComponent = () => {
                 <IonHeader>
                     <IonToolbar>
                         <IonButtons slot="start">
-                            <IonBackButton text={'Tus compras'} defaultHref="/products"/>
+                            {!loading && <IonBackButton text={'Tus productos'} defaultHref="/products"/>}
                         </IonButtons>
                     </IonToolbar>
                 </IonHeader>
@@ -84,12 +88,14 @@ const Cart: FunctionComponent = () => {
                             image={product.image}
                             detail={product.detail}
                             quantity={product.quantity}
+                            loading={loading}
                         />
                     ))
                 }
 
                 <IonButton className={"btn"}
                            expand={"block"}
+                           disabled={loading}
                            onClick={() => setConfirmModal(true)}>
                     Confirmar compra
                 </IonButton>
@@ -115,7 +121,6 @@ const Cart: FunctionComponent = () => {
                     ]}
                 />
             </IonContent>
-            <ToastContainer/>
         </Layout>
     );
 };

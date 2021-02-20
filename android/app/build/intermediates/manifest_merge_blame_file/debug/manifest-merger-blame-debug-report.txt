@@ -10,335 +10,295 @@
 9        android:targetSdkVersion="29" />
 9-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml
 10
-11    <!-- Permissions -->
-12
-13    <uses-permission android:name="android.permission.INTERNET" />
-13-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:48:5-67
-13-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:48:22-64
-14    <!-- Camera, Photos, input file -->
-15    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-15-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:50:5-79
-15-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:50:22-77
-16    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-16-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:51:5-81
-16-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:51:22-78
-17    <!-- Geolocation API -->
-18    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-18-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:53:5-81
-18-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:53:22-78
-19    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-19-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:54:5-79
-19-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:54:22-76
-20
-21    <uses-feature android:name="android.hardware.location.gps" />
-21-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:55:5-66
-21-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:55:19-63
-22    <!-- Network API -->
-23    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-23-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:57:5-79
-23-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:57:22-76
-24    <!-- Navigator.getUserMedia -->
-25    <!-- Video -->
-26    <uses-permission android:name="android.permission.CAMERA" />
-26-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:60:5-65
-26-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:60:22-62
-27    <!-- Audio -->
-28    <uses-permission android:name="android.permission.RECORD_AUDIO" />
-28-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:62:5-71
-28-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:62:22-68
-29    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
-29-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:63:5-79
-29-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:63:22-77
-30
-31    <uses-feature
-31-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:11:5-13:36
-32        android:name="android.hardware.camera"
-32-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:12:9-47
-33        android:required="false" />
-33-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:13:9-33
-34
-35    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-35-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:15:5-81
-35-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:15:22-78
-36    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- Required by older versions of Google Play services to create IID tokens -->
-36-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:16:5-68
-36-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:16:22-65
-37    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-37-->[com.google.firebase:firebase-iid:20.1.1] /home/gabriel/.gradle/caches/transforms-2/files-2.1/65f174b01524df0d4bd637d7360a2e28/jetified-firebase-iid-20.1.1/AndroidManifest.xml:26:5-82
-37-->[com.google.firebase:firebase-iid:20.1.1] /home/gabriel/.gradle/caches/transforms-2/files-2.1/65f174b01524df0d4bd637d7360a2e28/jetified-firebase-iid-20.1.1/AndroidManifest.xml:26:22-79
-38
-39    <application
-39-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:5:5-44:19
-40        android:allowBackup="true"
-40-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:6:9-35
-41        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-41-->[androidx.core:core:1.2.0] /home/gabriel/.gradle/caches/transforms-2/files-2.1/cf23515831a30cf8e0e5ff774beb1451/core-1.2.0/AndroidManifest.xml:24:18-86
-42        android:debuggable="true"
-43        android:icon="@mipmap/ic_launcher"
-43-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:7:9-43
-44        android:label="@string/app_name"
-44-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:8:9-41
-45        android:roundIcon="@mipmap/ic_launcher_round"
-45-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:9:9-54
-46        android:supportsRtl="true"
-46-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:10:9-35
-47        android:theme="@style/AppTheme"
-47-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:12:9-40
-48        android:usesCleartextTraffic="true" >
-48-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:11:9-44
-49        <activity
-49-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:14:9-33:20
-50            android:name="io.ionic.starter.MainActivity"
-50-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:16:13-57
-51            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|smallestScreenSize|screenLayout|uiMode"
-51-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:15:13-129
-52            android:label="@string/title_activity_main"
-52-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:17:13-56
-53            android:launchMode="singleTask"
-53-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:19:13-44
-54            android:theme="@style/AppTheme.NoActionBarLaunch" >
-54-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:18:13-62
-55            <intent-filter>
-55-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:21:13-24:29
-56                <action android:name="android.intent.action.MAIN" />
-56-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:22:17-69
-56-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:22:25-66
-57
-58                <category android:name="android.intent.category.LAUNCHER" />
-58-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:23:17-77
-58-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:23:27-74
-59            </intent-filter>
-60            <intent-filter>
-60-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:26:13-31:29
-61                <action android:name="android.intent.action.VIEW" />
-61-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:27:17-69
-61-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:27:25-66
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:37:5-67
+11-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:37:22-64
+12    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+12-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:38:5-79
+12-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:38:22-77
+13    <uses-permission android:name="android.permission.CAMERA" />
+13-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:39:5-65
+13-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:39:22-62
+14    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+14-->[:capacitor-cordova-android-plugins] /home/gabriel/Documentos/Tesis/app_tesis/android/capacitor-cordova-android-plugins/build/intermediates/library_manifest/debug/AndroidManifest.xml:13:5-81
+14-->[:capacitor-cordova-android-plugins] /home/gabriel/Documentos/Tesis/app_tesis/android/capacitor-cordova-android-plugins/build/intermediates/library_manifest/debug/AndroidManifest.xml:13:22-78
+15
+16    <uses-feature
+16-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:11:5-13:36
+17        android:name="android.hardware.camera"
+17-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:12:9-47
+18        android:required="false" />
+18-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:13:9-33
+19
+20    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+20-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:15:5-81
+20-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:15:22-78
+21    <uses-permission android:name="android.permission.WAKE_LOCK" />
+21-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:16:5-68
+21-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:16:22-65
+22    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- Required by older versions of Google Play services to create IID tokens -->
+22-->[com.google.firebase:firebase-iid:20.1.1] /home/gabriel/.gradle/caches/transforms-2/files-2.1/65f174b01524df0d4bd637d7360a2e28/jetified-firebase-iid-20.1.1/AndroidManifest.xml:22:5-79
+22-->[com.google.firebase:firebase-iid:20.1.1] /home/gabriel/.gradle/caches/transforms-2/files-2.1/65f174b01524df0d4bd637d7360a2e28/jetified-firebase-iid-20.1.1/AndroidManifest.xml:22:22-76
+23    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+23-->[com.google.firebase:firebase-iid:20.1.1] /home/gabriel/.gradle/caches/transforms-2/files-2.1/65f174b01524df0d4bd637d7360a2e28/jetified-firebase-iid-20.1.1/AndroidManifest.xml:26:5-82
+23-->[com.google.firebase:firebase-iid:20.1.1] /home/gabriel/.gradle/caches/transforms-2/files-2.1/65f174b01524df0d4bd637d7360a2e28/jetified-firebase-iid-20.1.1/AndroidManifest.xml:26:22-79
+24
+25    <application
+25-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:5:5-36:19
+26        android:allowBackup="true"
+26-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:6:13-39
+27        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+27-->[androidx.core:core:1.2.0] /home/gabriel/.gradle/caches/transforms-2/files-2.1/cf23515831a30cf8e0e5ff774beb1451/core-1.2.0/AndroidManifest.xml:24:18-86
+28        android:debuggable="true"
+29        android:icon="@mipmap/ic_launcher"
+29-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:7:13-47
+30        android:label="@string/app_name"
+30-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:8:13-45
+31        android:roundIcon="@mipmap/ic_launcher_round"
+31-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:9:13-58
+32        android:supportsRtl="true"
+32-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:10:13-39
+33        android:testOnly="true"
+34        android:theme="@style/AppTheme"
+34-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:12:13-44
+35        android:usesCleartextTraffic="true" >
+35-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:11:13-48
+36        <activity
+36-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:14:9-25:20
+37            android:name="io.ionic.starter.MainActivity"
+37-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:16:13-57
+38            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|smallestScreenSize|screenLayout|uiMode"
+38-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:15:13-129
+39            android:label="@string/title_activity_main"
+39-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:17:13-56
+40            android:launchMode="singleTask"
+40-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:19:13-44
+41            android:theme="@style/AppTheme.NoActionBarLaunch" >
+41-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:18:13-62
+42            <intent-filter>
+42-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:21:13-24:29
+43                <action android:name="android.intent.action.MAIN" />
+43-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:22:17-69
+43-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:22:25-66
+44
+45                <category android:name="android.intent.category.LAUNCHER" />
+45-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:23:17-77
+45-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:23:27-74
+46            </intent-filter>
+47        </activity>
+48
+49        <provider
+50            android:name="androidx.core.content.FileProvider"
+50-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:28:13-62
+51            android:authorities="io.ionic.starter.fileprovider"
+51-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:29:13-64
+52            android:exported="false"
+52-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:30:13-37
+53            android:grantUriPermissions="true" >
+53-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:31:13-47
+54            <meta-data
+54-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:32:13-34:64
+55                android:name="android.support.FILE_PROVIDER_PATHS"
+55-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:33:17-67
+56                android:resource="@xml/file_paths" />
+56-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:34:17-51
+57        </provider>
+58
+59        <activity
+59-->[:capacitor-cordova-android-plugins] /home/gabriel/Documentos/Tesis/app_tesis/android/capacitor-cordova-android-plugins/build/intermediates/library_manifest/debug/AndroidManifest.xml:17:9-19:80
+60            android:name="com.sarriaroman.PhotoViewer.PhotoActivity"
+60-->[:capacitor-cordova-android-plugins] /home/gabriel/Documentos/Tesis/app_tesis/android/capacitor-cordova-android-plugins/build/intermediates/library_manifest/debug/AndroidManifest.xml:18:13-69
+61            android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen" />
+61-->[:capacitor-cordova-android-plugins] /home/gabriel/Documentos/Tesis/app_tesis/android/capacitor-cordova-android-plugins/build/intermediates/library_manifest/debug/AndroidManifest.xml:19:13-77
 62
-63                <category android:name="android.intent.category.DEFAULT" />
-63-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:28:17-76
-63-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:28:27-73
-64                <category android:name="android.intent.category.BROWSABLE" />
-64-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:29:17-78
-64-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:29:27-75
-65
-66                <data android:scheme="@string/custom_url_scheme" />
-66-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:30:17-68
-66-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:30:23-65
-67            </intent-filter>
-68        </activity>
-69
-70        <provider
-71            android:name="androidx.core.content.FileProvider"
-71-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:36:13-62
-72            android:authorities="io.ionic.starter.fileprovider"
-72-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:37:13-64
-73            android:exported="false"
-73-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:38:13-37
-74            android:grantUriPermissions="true" >
-74-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:39:13-47
-75            <meta-data
-75-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:40:13-42:64
-76                android:name="android.support.FILE_PROVIDER_PATHS"
-76-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:41:17-67
-77                android:resource="@xml/file_paths" />
-77-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:42:17-51
-78        </provider>
-79
-80        <activity
-80-->[:capacitor-cordova-android-plugins] /home/gabriel/Documentos/Tesis/app_tesis/android/capacitor-cordova-android-plugins/build/intermediates/library_manifest/debug/AndroidManifest.xml:17:9-19:80
-81            android:name="com.sarriaroman.PhotoViewer.PhotoActivity"
-81-->[:capacitor-cordova-android-plugins] /home/gabriel/Documentos/Tesis/app_tesis/android/capacitor-cordova-android-plugins/build/intermediates/library_manifest/debug/AndroidManifest.xml:18:13-69
-82            android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen" />
-82-->[:capacitor-cordova-android-plugins] /home/gabriel/Documentos/Tesis/app_tesis/android/capacitor-cordova-android-plugins/build/intermediates/library_manifest/debug/AndroidManifest.xml:19:13-77
-83
-84        <provider
-84-->[com.squareup.picasso:picasso:2.71828] /home/gabriel/.gradle/caches/transforms-2/files-2.1/bf5f068530a053030fc0642586cc2084/jetified-picasso-2.71828/AndroidManifest.xml:8:9-11:40
-85            android:name="com.squareup.picasso.PicassoProvider"
-85-->[com.squareup.picasso:picasso:2.71828] /home/gabriel/.gradle/caches/transforms-2/files-2.1/bf5f068530a053030fc0642586cc2084/jetified-picasso-2.71828/AndroidManifest.xml:9:13-64
-86            android:authorities="io.ionic.starter.com.squareup.picasso"
-86-->[com.squareup.picasso:picasso:2.71828] /home/gabriel/.gradle/caches/transforms-2/files-2.1/bf5f068530a053030fc0642586cc2084/jetified-picasso-2.71828/AndroidManifest.xml:10:13-72
-87            android:exported="false" />
-87-->[com.squareup.picasso:picasso:2.71828] /home/gabriel/.gradle/caches/transforms-2/files-2.1/bf5f068530a053030fc0642586cc2084/jetified-picasso-2.71828/AndroidManifest.xml:11:13-37
-88
-89        <service
-89-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:19:9-21:40
-90            android:name="com.getcapacitor.plugin.background.BackgroundTaskService"
-90-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:20:13-84
-91            android:exported="false" />
-91-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:21:13-37
-92
-93        <receiver android:name="com.getcapacitor.plugin.notification.TimedNotificationPublisher" />
-93-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:23:9-100
-93-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:23:19-97
-94        <receiver android:name="com.getcapacitor.plugin.notification.NotificationDismissReceiver" />
-94-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:24:9-101
-94-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:24:19-98
-95
-96        <meta-data
-96-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:26:9-28:37
-97            android:name="firebase_messaging_auto_init_enabled"
-97-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:27:13-64
-98            android:value="false" />
-98-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:28:13-34
-99
-100        <service
-100-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:30:9-36:19
-101            android:name="com.getcapacitor.CapacitorFirebaseMessagingService"
-101-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:31:13-78
-102            android:stopWithTask="false" >
-102-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:32:13-41
-103            <intent-filter>
-103-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:33:13-35:29
-104                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-104-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:34:17-78
-104-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:34:25-75
-105            </intent-filter>
-106        </service>
-107
-108        <receiver
-108-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:38:9-47:20
-109            android:name="com.getcapacitor.plugin.notification.LocalNotificationRestoreReceiver"
-109-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:39:13-97
+63        <provider
+63-->[com.squareup.picasso:picasso:2.71828] /home/gabriel/.gradle/caches/transforms-2/files-2.1/5ced6532673070918ee74b8a3ec37233/jetified-picasso-2.71828/AndroidManifest.xml:8:9-11:40
+64            android:name="com.squareup.picasso.PicassoProvider"
+64-->[com.squareup.picasso:picasso:2.71828] /home/gabriel/.gradle/caches/transforms-2/files-2.1/5ced6532673070918ee74b8a3ec37233/jetified-picasso-2.71828/AndroidManifest.xml:9:13-64
+65            android:authorities="io.ionic.starter.com.squareup.picasso"
+65-->[com.squareup.picasso:picasso:2.71828] /home/gabriel/.gradle/caches/transforms-2/files-2.1/5ced6532673070918ee74b8a3ec37233/jetified-picasso-2.71828/AndroidManifest.xml:10:13-72
+66            android:exported="false" />
+66-->[com.squareup.picasso:picasso:2.71828] /home/gabriel/.gradle/caches/transforms-2/files-2.1/5ced6532673070918ee74b8a3ec37233/jetified-picasso-2.71828/AndroidManifest.xml:11:13-37
+67
+68        <service
+68-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:19:9-21:40
+69            android:name="com.getcapacitor.plugin.background.BackgroundTaskService"
+69-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:20:13-84
+70            android:exported="false" />
+70-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:21:13-37
+71
+72        <receiver android:name="com.getcapacitor.plugin.notification.TimedNotificationPublisher" />
+72-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:23:9-100
+72-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:23:19-97
+73        <receiver android:name="com.getcapacitor.plugin.notification.NotificationDismissReceiver" />
+73-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:24:9-101
+73-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:24:19-98
+74
+75        <meta-data
+75-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:26:9-28:37
+76            android:name="firebase_messaging_auto_init_enabled"
+76-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:27:13-64
+77            android:value="false" />
+77-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:28:13-34
+78
+79        <service
+79-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:30:9-36:19
+80            android:name="com.getcapacitor.CapacitorFirebaseMessagingService"
+80-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:31:13-78
+81            android:stopWithTask="false" >
+81-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:32:13-41
+82            <intent-filter>
+82-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:33:13-35:29
+83                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+83-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:34:17-78
+83-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:34:25-75
+84            </intent-filter>
+85        </service>
+86
+87        <receiver
+87-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:38:9-47:20
+88            android:name="com.getcapacitor.plugin.notification.LocalNotificationRestoreReceiver"
+88-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:39:13-97
+89            android:directBootAware="true"
+89-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:40:13-43
+90            android:exported="false" >
+90-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:41:13-37
+91            <intent-filter>
+91-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:42:13-46:29
+92                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
+92-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:43:17-86
+92-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:43:25-83
+93                <action android:name="android.intent.action.BOOT_COMPLETED" />
+93-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:44:17-79
+93-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:44:25-76
+94                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+94-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:45:17-82
+94-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:45:25-79
+95            </intent-filter>
+96        </receiver>
+97        <!--
+98             FirebaseMessagingService performs security checks at runtime,
+99             but set to not exported to explicitly avoid allowing another app to call it.
+100        -->
+101        <service
+101-->[com.google.firebase:firebase-messaging:20.1.2] /home/gabriel/.gradle/caches/transforms-2/files-2.1/9fbada88fa325291a82eb809c2064dc7/jetified-firebase-messaging-20.1.2/AndroidManifest.xml:28:9-34:19
+102            android:name="com.google.firebase.messaging.FirebaseMessagingService"
+102-->[com.google.firebase:firebase-messaging:20.1.2] /home/gabriel/.gradle/caches/transforms-2/files-2.1/9fbada88fa325291a82eb809c2064dc7/jetified-firebase-messaging-20.1.2/AndroidManifest.xml:29:13-82
+103            android:exported="false" >
+103-->[com.google.firebase:firebase-messaging:20.1.2] /home/gabriel/.gradle/caches/transforms-2/files-2.1/9fbada88fa325291a82eb809c2064dc7/jetified-firebase-messaging-20.1.2/AndroidManifest.xml:30:13-37
+104            <intent-filter android:priority="-500" >
+104-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:33:13-35:29
+105                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+105-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:34:17-78
+105-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:34:25-75
+106            </intent-filter>
+107        </service>
+108        <service
+108-->[com.google.firebase:firebase-messaging:20.1.2] /home/gabriel/.gradle/caches/transforms-2/files-2.1/9fbada88fa325291a82eb809c2064dc7/jetified-firebase-messaging-20.1.2/AndroidManifest.xml:35:9-41:19
+109            android:name="com.google.firebase.components.ComponentDiscoveryService"
+109-->[com.google.firebase:firebase-messaging:20.1.2] /home/gabriel/.gradle/caches/transforms-2/files-2.1/9fbada88fa325291a82eb809c2064dc7/jetified-firebase-messaging-20.1.2/AndroidManifest.xml:36:13-84
 110            android:directBootAware="true"
-110-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:40:13-43
+110-->[com.google.firebase:firebase-common:19.3.0] /home/gabriel/.gradle/caches/transforms-2/files-2.1/1b23a58bb1c539c2a19df1b0920c32b5/jetified-firebase-common-19.3.0/AndroidManifest.xml:34:13-43
 111            android:exported="false" >
-111-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:41:13-37
-112            <intent-filter>
-112-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:42:13-46:29
-113                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
-113-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:43:17-86
-113-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:43:25-83
-114                <action android:name="android.intent.action.BOOT_COMPLETED" />
-114-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:44:17-79
-114-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:44:25-76
-115                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
-115-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:45:17-82
-115-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:45:25-79
-116            </intent-filter>
-117        </receiver>
-118        <!--
-119             FirebaseMessagingService performs security checks at runtime,
-120             but set to not exported to explicitly avoid allowing another app to call it.
-121        -->
-122        <service
-122-->[com.google.firebase:firebase-messaging:20.1.2] /home/gabriel/.gradle/caches/transforms-2/files-2.1/9fbada88fa325291a82eb809c2064dc7/jetified-firebase-messaging-20.1.2/AndroidManifest.xml:28:9-34:19
-123            android:name="com.google.firebase.messaging.FirebaseMessagingService"
-123-->[com.google.firebase:firebase-messaging:20.1.2] /home/gabriel/.gradle/caches/transforms-2/files-2.1/9fbada88fa325291a82eb809c2064dc7/jetified-firebase-messaging-20.1.2/AndroidManifest.xml:29:13-82
-124            android:exported="false" >
-124-->[com.google.firebase:firebase-messaging:20.1.2] /home/gabriel/.gradle/caches/transforms-2/files-2.1/9fbada88fa325291a82eb809c2064dc7/jetified-firebase-messaging-20.1.2/AndroidManifest.xml:30:13-37
-125            <intent-filter android:priority="-500" >
-125-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:33:13-35:29
-126                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-126-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:34:17-78
-126-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:34:25-75
-127            </intent-filter>
-128        </service>
-129        <service
-129-->[com.google.firebase:firebase-messaging:20.1.2] /home/gabriel/.gradle/caches/transforms-2/files-2.1/9fbada88fa325291a82eb809c2064dc7/jetified-firebase-messaging-20.1.2/AndroidManifest.xml:35:9-41:19
-130            android:name="com.google.firebase.components.ComponentDiscoveryService"
-130-->[com.google.firebase:firebase-messaging:20.1.2] /home/gabriel/.gradle/caches/transforms-2/files-2.1/9fbada88fa325291a82eb809c2064dc7/jetified-firebase-messaging-20.1.2/AndroidManifest.xml:36:13-84
-131            android:directBootAware="true"
-131-->[com.google.firebase:firebase-common:19.3.0] /home/gabriel/.gradle/caches/transforms-2/files-2.1/1b23a58bb1c539c2a19df1b0920c32b5/jetified-firebase-common-19.3.0/AndroidManifest.xml:34:13-43
-132            android:exported="false" >
-132-->[com.google.firebase:firebase-messaging:20.1.2] /home/gabriel/.gradle/caches/transforms-2/files-2.1/9fbada88fa325291a82eb809c2064dc7/jetified-firebase-messaging-20.1.2/AndroidManifest.xml:37:13-37
-133            <meta-data
-133-->[com.google.firebase:firebase-messaging:20.1.2] /home/gabriel/.gradle/caches/transforms-2/files-2.1/9fbada88fa325291a82eb809c2064dc7/jetified-firebase-messaging-20.1.2/AndroidManifest.xml:38:13-40:85
-134                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar"
-134-->[com.google.firebase:firebase-messaging:20.1.2] /home/gabriel/.gradle/caches/transforms-2/files-2.1/9fbada88fa325291a82eb809c2064dc7/jetified-firebase-messaging-20.1.2/AndroidManifest.xml:39:17-119
-135                android:value="com.google.firebase.components.ComponentRegistrar" />
-135-->[com.google.firebase:firebase-messaging:20.1.2] /home/gabriel/.gradle/caches/transforms-2/files-2.1/9fbada88fa325291a82eb809c2064dc7/jetified-firebase-messaging-20.1.2/AndroidManifest.xml:40:17-82
-136            <meta-data
-136-->[com.google.firebase:firebase-datatransport:17.0.3] /home/gabriel/.gradle/caches/transforms-2/files-2.1/c9fdb49c77a6c560ace392ea2d5303c1/jetified-firebase-datatransport-17.0.3/AndroidManifest.xml:28:13-30:85
-137                android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
-137-->[com.google.firebase:firebase-datatransport:17.0.3] /home/gabriel/.gradle/caches/transforms-2/files-2.1/c9fdb49c77a6c560ace392ea2d5303c1/jetified-firebase-datatransport-17.0.3/AndroidManifest.xml:29:17-115
-138                android:value="com.google.firebase.components.ComponentRegistrar" />
-138-->[com.google.firebase:firebase-datatransport:17.0.3] /home/gabriel/.gradle/caches/transforms-2/files-2.1/c9fdb49c77a6c560ace392ea2d5303c1/jetified-firebase-datatransport-17.0.3/AndroidManifest.xml:30:17-82
-139            <meta-data
-139-->[com.google.firebase:firebase-iid:20.1.1] /home/gabriel/.gradle/caches/transforms-2/files-2.1/65f174b01524df0d4bd637d7360a2e28/jetified-firebase-iid-20.1.1/AndroidManifest.xml:32:13-34:85
-140                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
-140-->[com.google.firebase:firebase-iid:20.1.1] /home/gabriel/.gradle/caches/transforms-2/files-2.1/65f174b01524df0d4bd637d7360a2e28/jetified-firebase-iid-20.1.1/AndroidManifest.xml:33:17-96
-141                android:value="com.google.firebase.components.ComponentRegistrar" />
-141-->[com.google.firebase:firebase-iid:20.1.1] /home/gabriel/.gradle/caches/transforms-2/files-2.1/65f174b01524df0d4bd637d7360a2e28/jetified-firebase-iid-20.1.1/AndroidManifest.xml:34:17-82
-142            <meta-data
-142-->[com.google.firebase:firebase-installations:16.0.0] /home/gabriel/.gradle/caches/transforms-2/files-2.1/1e98b102015e39078d965ca60768118d/jetified-firebase-installations-16.0.0/AndroidManifest.xml:17:13-19:85
-143                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
-143-->[com.google.firebase:firebase-installations:16.0.0] /home/gabriel/.gradle/caches/transforms-2/files-2.1/1e98b102015e39078d965ca60768118d/jetified-firebase-installations-16.0.0/AndroidManifest.xml:18:17-127
-144                android:value="com.google.firebase.components.ComponentRegistrar" />
-144-->[com.google.firebase:firebase-installations:16.0.0] /home/gabriel/.gradle/caches/transforms-2/files-2.1/1e98b102015e39078d965ca60768118d/jetified-firebase-installations-16.0.0/AndroidManifest.xml:19:17-82
-145        </service>
-146
-147        <receiver
-147-->[com.google.firebase:firebase-iid:20.1.1] /home/gabriel/.gradle/caches/transforms-2/files-2.1/65f174b01524df0d4bd637d7360a2e28/jetified-firebase-iid-20.1.1/AndroidManifest.xml:37:9-44:20
-148            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
-148-->[com.google.firebase:firebase-iid:20.1.1] /home/gabriel/.gradle/caches/transforms-2/files-2.1/65f174b01524df0d4bd637d7360a2e28/jetified-firebase-iid-20.1.1/AndroidManifest.xml:38:13-78
-149            android:exported="true"
-149-->[com.google.firebase:firebase-iid:20.1.1] /home/gabriel/.gradle/caches/transforms-2/files-2.1/65f174b01524df0d4bd637d7360a2e28/jetified-firebase-iid-20.1.1/AndroidManifest.xml:39:13-36
-150            android:permission="com.google.android.c2dm.permission.SEND" >
-150-->[com.google.firebase:firebase-iid:20.1.1] /home/gabriel/.gradle/caches/transforms-2/files-2.1/65f174b01524df0d4bd637d7360a2e28/jetified-firebase-iid-20.1.1/AndroidManifest.xml:40:13-73
-151            <intent-filter>
-151-->[com.google.firebase:firebase-iid:20.1.1] /home/gabriel/.gradle/caches/transforms-2/files-2.1/65f174b01524df0d4bd637d7360a2e28/jetified-firebase-iid-20.1.1/AndroidManifest.xml:41:13-43:29
-152                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-152-->[com.google.firebase:firebase-iid:20.1.1] /home/gabriel/.gradle/caches/transforms-2/files-2.1/65f174b01524df0d4bd637d7360a2e28/jetified-firebase-iid-20.1.1/AndroidManifest.xml:42:17-81
-152-->[com.google.firebase:firebase-iid:20.1.1] /home/gabriel/.gradle/caches/transforms-2/files-2.1/65f174b01524df0d4bd637d7360a2e28/jetified-firebase-iid-20.1.1/AndroidManifest.xml:42:25-78
-153            </intent-filter>
-154        </receiver>
-155
-156        <provider
-156-->[com.google.firebase:firebase-common:19.3.0] /home/gabriel/.gradle/caches/transforms-2/files-2.1/1b23a58bb1c539c2a19df1b0920c32b5/jetified-firebase-common-19.3.0/AndroidManifest.xml:26:9-30:39
-157            android:name="com.google.firebase.provider.FirebaseInitProvider"
-157-->[com.google.firebase:firebase-common:19.3.0] /home/gabriel/.gradle/caches/transforms-2/files-2.1/1b23a58bb1c539c2a19df1b0920c32b5/jetified-firebase-common-19.3.0/AndroidManifest.xml:27:13-77
-158            android:authorities="io.ionic.starter.firebaseinitprovider"
-158-->[com.google.firebase:firebase-common:19.3.0] /home/gabriel/.gradle/caches/transforms-2/files-2.1/1b23a58bb1c539c2a19df1b0920c32b5/jetified-firebase-common-19.3.0/AndroidManifest.xml:28:13-72
+111-->[com.google.firebase:firebase-messaging:20.1.2] /home/gabriel/.gradle/caches/transforms-2/files-2.1/9fbada88fa325291a82eb809c2064dc7/jetified-firebase-messaging-20.1.2/AndroidManifest.xml:37:13-37
+112            <meta-data
+112-->[com.google.firebase:firebase-messaging:20.1.2] /home/gabriel/.gradle/caches/transforms-2/files-2.1/9fbada88fa325291a82eb809c2064dc7/jetified-firebase-messaging-20.1.2/AndroidManifest.xml:38:13-40:85
+113                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar"
+113-->[com.google.firebase:firebase-messaging:20.1.2] /home/gabriel/.gradle/caches/transforms-2/files-2.1/9fbada88fa325291a82eb809c2064dc7/jetified-firebase-messaging-20.1.2/AndroidManifest.xml:39:17-119
+114                android:value="com.google.firebase.components.ComponentRegistrar" />
+114-->[com.google.firebase:firebase-messaging:20.1.2] /home/gabriel/.gradle/caches/transforms-2/files-2.1/9fbada88fa325291a82eb809c2064dc7/jetified-firebase-messaging-20.1.2/AndroidManifest.xml:40:17-82
+115            <meta-data
+115-->[com.google.firebase:firebase-datatransport:17.0.3] /home/gabriel/.gradle/caches/transforms-2/files-2.1/c9fdb49c77a6c560ace392ea2d5303c1/jetified-firebase-datatransport-17.0.3/AndroidManifest.xml:28:13-30:85
+116                android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
+116-->[com.google.firebase:firebase-datatransport:17.0.3] /home/gabriel/.gradle/caches/transforms-2/files-2.1/c9fdb49c77a6c560ace392ea2d5303c1/jetified-firebase-datatransport-17.0.3/AndroidManifest.xml:29:17-115
+117                android:value="com.google.firebase.components.ComponentRegistrar" />
+117-->[com.google.firebase:firebase-datatransport:17.0.3] /home/gabriel/.gradle/caches/transforms-2/files-2.1/c9fdb49c77a6c560ace392ea2d5303c1/jetified-firebase-datatransport-17.0.3/AndroidManifest.xml:30:17-82
+118            <meta-data
+118-->[com.google.firebase:firebase-iid:20.1.1] /home/gabriel/.gradle/caches/transforms-2/files-2.1/65f174b01524df0d4bd637d7360a2e28/jetified-firebase-iid-20.1.1/AndroidManifest.xml:32:13-34:85
+119                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
+119-->[com.google.firebase:firebase-iid:20.1.1] /home/gabriel/.gradle/caches/transforms-2/files-2.1/65f174b01524df0d4bd637d7360a2e28/jetified-firebase-iid-20.1.1/AndroidManifest.xml:33:17-96
+120                android:value="com.google.firebase.components.ComponentRegistrar" />
+120-->[com.google.firebase:firebase-iid:20.1.1] /home/gabriel/.gradle/caches/transforms-2/files-2.1/65f174b01524df0d4bd637d7360a2e28/jetified-firebase-iid-20.1.1/AndroidManifest.xml:34:17-82
+121            <meta-data
+121-->[com.google.firebase:firebase-installations:16.0.0] /home/gabriel/.gradle/caches/transforms-2/files-2.1/1e98b102015e39078d965ca60768118d/jetified-firebase-installations-16.0.0/AndroidManifest.xml:17:13-19:85
+122                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
+122-->[com.google.firebase:firebase-installations:16.0.0] /home/gabriel/.gradle/caches/transforms-2/files-2.1/1e98b102015e39078d965ca60768118d/jetified-firebase-installations-16.0.0/AndroidManifest.xml:18:17-127
+123                android:value="com.google.firebase.components.ComponentRegistrar" />
+123-->[com.google.firebase:firebase-installations:16.0.0] /home/gabriel/.gradle/caches/transforms-2/files-2.1/1e98b102015e39078d965ca60768118d/jetified-firebase-installations-16.0.0/AndroidManifest.xml:19:17-82
+124        </service>
+125
+126        <receiver
+126-->[com.google.firebase:firebase-iid:20.1.1] /home/gabriel/.gradle/caches/transforms-2/files-2.1/65f174b01524df0d4bd637d7360a2e28/jetified-firebase-iid-20.1.1/AndroidManifest.xml:37:9-44:20
+127            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+127-->[com.google.firebase:firebase-iid:20.1.1] /home/gabriel/.gradle/caches/transforms-2/files-2.1/65f174b01524df0d4bd637d7360a2e28/jetified-firebase-iid-20.1.1/AndroidManifest.xml:38:13-78
+128            android:exported="true"
+128-->[com.google.firebase:firebase-iid:20.1.1] /home/gabriel/.gradle/caches/transforms-2/files-2.1/65f174b01524df0d4bd637d7360a2e28/jetified-firebase-iid-20.1.1/AndroidManifest.xml:39:13-36
+129            android:permission="com.google.android.c2dm.permission.SEND" >
+129-->[com.google.firebase:firebase-iid:20.1.1] /home/gabriel/.gradle/caches/transforms-2/files-2.1/65f174b01524df0d4bd637d7360a2e28/jetified-firebase-iid-20.1.1/AndroidManifest.xml:40:13-73
+130            <intent-filter>
+130-->[com.google.firebase:firebase-iid:20.1.1] /home/gabriel/.gradle/caches/transforms-2/files-2.1/65f174b01524df0d4bd637d7360a2e28/jetified-firebase-iid-20.1.1/AndroidManifest.xml:41:13-43:29
+131                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+131-->[com.google.firebase:firebase-iid:20.1.1] /home/gabriel/.gradle/caches/transforms-2/files-2.1/65f174b01524df0d4bd637d7360a2e28/jetified-firebase-iid-20.1.1/AndroidManifest.xml:42:17-81
+131-->[com.google.firebase:firebase-iid:20.1.1] /home/gabriel/.gradle/caches/transforms-2/files-2.1/65f174b01524df0d4bd637d7360a2e28/jetified-firebase-iid-20.1.1/AndroidManifest.xml:42:25-78
+132            </intent-filter>
+133        </receiver>
+134
+135        <provider
+135-->[com.google.firebase:firebase-common:19.3.0] /home/gabriel/.gradle/caches/transforms-2/files-2.1/1b23a58bb1c539c2a19df1b0920c32b5/jetified-firebase-common-19.3.0/AndroidManifest.xml:26:9-30:39
+136            android:name="com.google.firebase.provider.FirebaseInitProvider"
+136-->[com.google.firebase:firebase-common:19.3.0] /home/gabriel/.gradle/caches/transforms-2/files-2.1/1b23a58bb1c539c2a19df1b0920c32b5/jetified-firebase-common-19.3.0/AndroidManifest.xml:27:13-77
+137            android:authorities="io.ionic.starter.firebaseinitprovider"
+137-->[com.google.firebase:firebase-common:19.3.0] /home/gabriel/.gradle/caches/transforms-2/files-2.1/1b23a58bb1c539c2a19df1b0920c32b5/jetified-firebase-common-19.3.0/AndroidManifest.xml:28:13-72
+138            android:exported="false"
+138-->[com.google.firebase:firebase-common:19.3.0] /home/gabriel/.gradle/caches/transforms-2/files-2.1/1b23a58bb1c539c2a19df1b0920c32b5/jetified-firebase-common-19.3.0/AndroidManifest.xml:29:13-37
+139            android:initOrder="100" />
+139-->[com.google.firebase:firebase-common:19.3.0] /home/gabriel/.gradle/caches/transforms-2/files-2.1/1b23a58bb1c539c2a19df1b0920c32b5/jetified-firebase-common-19.3.0/AndroidManifest.xml:30:13-36
+140
+141        <activity
+141-->[com.google.android.gms:play-services-base:17.0.0] /home/gabriel/.gradle/caches/transforms-2/files-2.1/38b6c4b545e39be84f8fef63d737cf6b/jetified-play-services-base-17.0.0/AndroidManifest.xml:23:9-26:75
+142            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+142-->[com.google.android.gms:play-services-base:17.0.0] /home/gabriel/.gradle/caches/transforms-2/files-2.1/38b6c4b545e39be84f8fef63d737cf6b/jetified-play-services-base-17.0.0/AndroidManifest.xml:24:13-79
+143            android:exported="false"
+143-->[com.google.android.gms:play-services-base:17.0.0] /home/gabriel/.gradle/caches/transforms-2/files-2.1/38b6c4b545e39be84f8fef63d737cf6b/jetified-play-services-base-17.0.0/AndroidManifest.xml:25:13-37
+144            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+144-->[com.google.android.gms:play-services-base:17.0.0] /home/gabriel/.gradle/caches/transforms-2/files-2.1/38b6c4b545e39be84f8fef63d737cf6b/jetified-play-services-base-17.0.0/AndroidManifest.xml:26:13-72
+145
+146        <meta-data
+146-->[com.google.android.gms:play-services-basement:17.0.0] /home/gabriel/.gradle/caches/transforms-2/files-2.1/f720b24cc490c109d50c0a0a1e6bf186/jetified-play-services-basement-17.0.0/AndroidManifest.xml:23:9-25:69
+147            android:name="com.google.android.gms.version"
+147-->[com.google.android.gms:play-services-basement:17.0.0] /home/gabriel/.gradle/caches/transforms-2/files-2.1/f720b24cc490c109d50c0a0a1e6bf186/jetified-play-services-basement-17.0.0/AndroidManifest.xml:24:13-58
+148            android:value="@integer/google_play_services_version" />
+148-->[com.google.android.gms:play-services-basement:17.0.0] /home/gabriel/.gradle/caches/transforms-2/files-2.1/f720b24cc490c109d50c0a0a1e6bf186/jetified-play-services-basement-17.0.0/AndroidManifest.xml:25:13-66
+149
+150        <service
+150-->[com.google.android.datatransport:transport-backend-cct:2.2.0] /home/gabriel/.gradle/caches/transforms-2/files-2.1/6b92bf4ad40bcdc58a60097256bb2331/jetified-transport-backend-cct-2.2.0/AndroidManifest.xml:29:9-35:19
+151            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+151-->[com.google.android.datatransport:transport-backend-cct:2.2.0] /home/gabriel/.gradle/caches/transforms-2/files-2.1/6b92bf4ad40bcdc58a60097256bb2331/jetified-transport-backend-cct-2.2.0/AndroidManifest.xml:30:13-103
+152            android:exported="false" >
+152-->[com.google.android.datatransport:transport-backend-cct:2.2.0] /home/gabriel/.gradle/caches/transforms-2/files-2.1/6b92bf4ad40bcdc58a60097256bb2331/jetified-transport-backend-cct-2.2.0/AndroidManifest.xml:31:13-37
+153            <meta-data
+153-->[com.google.android.datatransport:transport-backend-cct:2.2.0] /home/gabriel/.gradle/caches/transforms-2/files-2.1/6b92bf4ad40bcdc58a60097256bb2331/jetified-transport-backend-cct-2.2.0/AndroidManifest.xml:32:13-34:39
+154                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+154-->[com.google.android.datatransport:transport-backend-cct:2.2.0] /home/gabriel/.gradle/caches/transforms-2/files-2.1/6b92bf4ad40bcdc58a60097256bb2331/jetified-transport-backend-cct-2.2.0/AndroidManifest.xml:33:17-94
+155                android:value="cct" />
+155-->[com.google.android.datatransport:transport-backend-cct:2.2.0] /home/gabriel/.gradle/caches/transforms-2/files-2.1/6b92bf4ad40bcdc58a60097256bb2331/jetified-transport-backend-cct-2.2.0/AndroidManifest.xml:34:17-36
+156        </service>
+157        <service
+157-->[com.google.android.datatransport:transport-runtime:2.2.0] /home/gabriel/.gradle/caches/transforms-2/files-2.1/711d09d774dd8393d1b2cda417cd0cc2/jetified-transport-runtime-2.2.0/AndroidManifest.xml:26:9-30:19
+158            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+158-->[com.google.android.datatransport:transport-runtime:2.2.0] /home/gabriel/.gradle/caches/transforms-2/files-2.1/711d09d774dd8393d1b2cda417cd0cc2/jetified-transport-runtime-2.2.0/AndroidManifest.xml:27:13-117
 159            android:exported="false"
-159-->[com.google.firebase:firebase-common:19.3.0] /home/gabriel/.gradle/caches/transforms-2/files-2.1/1b23a58bb1c539c2a19df1b0920c32b5/jetified-firebase-common-19.3.0/AndroidManifest.xml:29:13-37
-160            android:initOrder="100" />
-160-->[com.google.firebase:firebase-common:19.3.0] /home/gabriel/.gradle/caches/transforms-2/files-2.1/1b23a58bb1c539c2a19df1b0920c32b5/jetified-firebase-common-19.3.0/AndroidManifest.xml:30:13-36
-161
-162        <activity
-162-->[com.google.android.gms:play-services-base:17.0.0] /home/gabriel/.gradle/caches/transforms-2/files-2.1/38b6c4b545e39be84f8fef63d737cf6b/jetified-play-services-base-17.0.0/AndroidManifest.xml:23:9-26:75
-163            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-163-->[com.google.android.gms:play-services-base:17.0.0] /home/gabriel/.gradle/caches/transforms-2/files-2.1/38b6c4b545e39be84f8fef63d737cf6b/jetified-play-services-base-17.0.0/AndroidManifest.xml:24:13-79
-164            android:exported="false"
-164-->[com.google.android.gms:play-services-base:17.0.0] /home/gabriel/.gradle/caches/transforms-2/files-2.1/38b6c4b545e39be84f8fef63d737cf6b/jetified-play-services-base-17.0.0/AndroidManifest.xml:25:13-37
-165            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-165-->[com.google.android.gms:play-services-base:17.0.0] /home/gabriel/.gradle/caches/transforms-2/files-2.1/38b6c4b545e39be84f8fef63d737cf6b/jetified-play-services-base-17.0.0/AndroidManifest.xml:26:13-72
-166
-167        <meta-data
-167-->[com.google.android.gms:play-services-basement:17.0.0] /home/gabriel/.gradle/caches/transforms-2/files-2.1/f720b24cc490c109d50c0a0a1e6bf186/jetified-play-services-basement-17.0.0/AndroidManifest.xml:23:9-25:69
-168            android:name="com.google.android.gms.version"
-168-->[com.google.android.gms:play-services-basement:17.0.0] /home/gabriel/.gradle/caches/transforms-2/files-2.1/f720b24cc490c109d50c0a0a1e6bf186/jetified-play-services-basement-17.0.0/AndroidManifest.xml:24:13-58
-169            android:value="@integer/google_play_services_version" />
-169-->[com.google.android.gms:play-services-basement:17.0.0] /home/gabriel/.gradle/caches/transforms-2/files-2.1/f720b24cc490c109d50c0a0a1e6bf186/jetified-play-services-basement-17.0.0/AndroidManifest.xml:25:13-66
-170
-171        <service
-171-->[com.google.android.datatransport:transport-backend-cct:2.2.0] /home/gabriel/.gradle/caches/transforms-2/files-2.1/6b92bf4ad40bcdc58a60097256bb2331/jetified-transport-backend-cct-2.2.0/AndroidManifest.xml:29:9-35:19
-172            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
-172-->[com.google.android.datatransport:transport-backend-cct:2.2.0] /home/gabriel/.gradle/caches/transforms-2/files-2.1/6b92bf4ad40bcdc58a60097256bb2331/jetified-transport-backend-cct-2.2.0/AndroidManifest.xml:30:13-103
-173            android:exported="false" >
-173-->[com.google.android.datatransport:transport-backend-cct:2.2.0] /home/gabriel/.gradle/caches/transforms-2/files-2.1/6b92bf4ad40bcdc58a60097256bb2331/jetified-transport-backend-cct-2.2.0/AndroidManifest.xml:31:13-37
-174            <meta-data
-174-->[com.google.android.datatransport:transport-backend-cct:2.2.0] /home/gabriel/.gradle/caches/transforms-2/files-2.1/6b92bf4ad40bcdc58a60097256bb2331/jetified-transport-backend-cct-2.2.0/AndroidManifest.xml:32:13-34:39
-175                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
-175-->[com.google.android.datatransport:transport-backend-cct:2.2.0] /home/gabriel/.gradle/caches/transforms-2/files-2.1/6b92bf4ad40bcdc58a60097256bb2331/jetified-transport-backend-cct-2.2.0/AndroidManifest.xml:33:17-94
-176                android:value="cct" />
-176-->[com.google.android.datatransport:transport-backend-cct:2.2.0] /home/gabriel/.gradle/caches/transforms-2/files-2.1/6b92bf4ad40bcdc58a60097256bb2331/jetified-transport-backend-cct-2.2.0/AndroidManifest.xml:34:17-36
-177        </service>
-178        <service
-178-->[com.google.android.datatransport:transport-runtime:2.2.0] /home/gabriel/.gradle/caches/transforms-2/files-2.1/711d09d774dd8393d1b2cda417cd0cc2/jetified-transport-runtime-2.2.0/AndroidManifest.xml:26:9-30:19
-179            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
-179-->[com.google.android.datatransport:transport-runtime:2.2.0] /home/gabriel/.gradle/caches/transforms-2/files-2.1/711d09d774dd8393d1b2cda417cd0cc2/jetified-transport-runtime-2.2.0/AndroidManifest.xml:27:13-117
-180            android:exported="false"
-180-->[com.google.android.datatransport:transport-runtime:2.2.0] /home/gabriel/.gradle/caches/transforms-2/files-2.1/711d09d774dd8393d1b2cda417cd0cc2/jetified-transport-runtime-2.2.0/AndroidManifest.xml:28:13-37
-181            android:permission="android.permission.BIND_JOB_SERVICE" >
-181-->[com.google.android.datatransport:transport-runtime:2.2.0] /home/gabriel/.gradle/caches/transforms-2/files-2.1/711d09d774dd8393d1b2cda417cd0cc2/jetified-transport-runtime-2.2.0/AndroidManifest.xml:29:13-69
-182        </service>
-183
-184        <receiver
-184-->[com.google.android.datatransport:transport-runtime:2.2.0] /home/gabriel/.gradle/caches/transforms-2/files-2.1/711d09d774dd8393d1b2cda417cd0cc2/jetified-transport-runtime-2.2.0/AndroidManifest.xml:32:9-34:40
-185            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
-185-->[com.google.android.datatransport:transport-runtime:2.2.0] /home/gabriel/.gradle/caches/transforms-2/files-2.1/711d09d774dd8393d1b2cda417cd0cc2/jetified-transport-runtime-2.2.0/AndroidManifest.xml:33:13-132
-186            android:exported="false" />
-186-->[com.google.android.datatransport:transport-runtime:2.2.0] /home/gabriel/.gradle/caches/transforms-2/files-2.1/711d09d774dd8393d1b2cda417cd0cc2/jetified-transport-runtime-2.2.0/AndroidManifest.xml:34:13-37
-187    </application>
-188
-189</manifest>
+159-->[com.google.android.datatransport:transport-runtime:2.2.0] /home/gabriel/.gradle/caches/transforms-2/files-2.1/711d09d774dd8393d1b2cda417cd0cc2/jetified-transport-runtime-2.2.0/AndroidManifest.xml:28:13-37
+160            android:permission="android.permission.BIND_JOB_SERVICE" >
+160-->[com.google.android.datatransport:transport-runtime:2.2.0] /home/gabriel/.gradle/caches/transforms-2/files-2.1/711d09d774dd8393d1b2cda417cd0cc2/jetified-transport-runtime-2.2.0/AndroidManifest.xml:29:13-69
+161        </service>
+162
+163        <receiver
+163-->[com.google.android.datatransport:transport-runtime:2.2.0] /home/gabriel/.gradle/caches/transforms-2/files-2.1/711d09d774dd8393d1b2cda417cd0cc2/jetified-transport-runtime-2.2.0/AndroidManifest.xml:32:9-34:40
+164            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+164-->[com.google.android.datatransport:transport-runtime:2.2.0] /home/gabriel/.gradle/caches/transforms-2/files-2.1/711d09d774dd8393d1b2cda417cd0cc2/jetified-transport-runtime-2.2.0/AndroidManifest.xml:33:13-132
+165            android:exported="false" />
+165-->[com.google.android.datatransport:transport-runtime:2.2.0] /home/gabriel/.gradle/caches/transforms-2/files-2.1/711d09d774dd8393d1b2cda417cd0cc2/jetified-transport-runtime-2.2.0/AndroidManifest.xml:34:13-37
+166    </application>
+167
+168</manifest>

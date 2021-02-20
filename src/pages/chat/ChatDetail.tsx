@@ -58,7 +58,6 @@ const ChatDetail: FunctionComponent = () => {
             setLoading(true);
             axiosConfig().get(`chats?toUser=${location?.state?.id}`)
                 .then(({data}) => {
-                    console.log(data);
                     setChatsHistory(data.map((chat: any) => ({
                             fromUser: chat.fromUser,
                             toUser: chat.toUser,
@@ -115,27 +114,13 @@ const ChatDetail: FunctionComponent = () => {
         });
     }
 
-    const openGallery = () => {
-        Photos.getPhotos({
-            quantity: 1
-        }).then(({photos}) => {
-            console.log(photos)
-            //sendMessage({type: "image", message: res});
-        })
-    }
-
     return (
         <IonPage>
             <IonHeader>
                 <IonToolbar>
                     <IonToolbar>
-                        <IonButtons slot="start" onClick={() => {
-                            socket.close()
-                            history.push('/chat'
-                            )
-                        }}>
-                            <IonBackButton/>
-                            <IonLabel>{location?.state?.name}</IonLabel>
+                        <IonButtons slot="start" onClick={()=>socket.close()}>
+                            <IonBackButton text={location?.state?.name} defaultHref="/chats"/>
                         </IonButtons>
                     </IonToolbar>
                 </IonToolbar>
@@ -158,12 +143,6 @@ const ChatDetail: FunctionComponent = () => {
                                    openCamera()
                                }}>
                         <IonIcon slot="icon-only" icon={cameraOutline}/>
-                    </IonButton>
-                    <IonButton fill={'clear'}
-                               onClick={() => {
-                                   openGallery()
-                               }}>
-                        <IonIcon slot="icon-only" icon={imageOutline}/>
                     </IonButton>
                     <IonTextarea
                         value={newMessage}

@@ -1,6 +1,7 @@
 import React, {FunctionComponent} from "react";
 import {IonPage} from "@ionic/react";
 import Footer from "../footer/Footer";
+import {ToastContainer} from "react-toastify";
 
 const Layout: FunctionComponent = ({children}) => {
 

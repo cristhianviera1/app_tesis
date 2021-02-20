@@ -23,7 +23,6 @@ const BranchOffices: FunctionComponent = () => {
         setLoading(true)
         axiosConfig().get('branch-offices')
             .then(({data}) => {
-                console.log(data);
                 setBranchOffices(data.map((branchOffice: any) => ({
                     id: branchOffice._id,
                     name: branchOffice.name,

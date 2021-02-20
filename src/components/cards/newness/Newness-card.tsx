@@ -1,4 +1,4 @@
-import React, {FunctionComponent, useEffect, useState} from "react";
+import React, {FunctionComponent, useState} from "react";
 import {IonButton, IonCard, IonCardContent, IonCardHeader, IonCardTitle} from "@ionic/react";
 import './Newness-card.css'
 
@@ -12,7 +12,7 @@ export interface NewnessCardInfo {
 const NewnessCard: FunctionComponent<NewnessCardInfo> = ({title, image, description, link}) => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
     return (
-        <IonCard className={"newness-card"}>
+        <IonCard className={"newness-card"} style={{marginTop:'3%'}}>
             <IonCardHeader>
                 <img width="100%" height="100%" src={image}/>
                 <IonCardTitle>{title}</IonCardTitle>

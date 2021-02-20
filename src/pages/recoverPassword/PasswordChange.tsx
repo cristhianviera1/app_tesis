@@ -25,6 +25,7 @@ import {
 } from "@ionic/react";
 import {eye, eyeOff, lockClosedOutline} from "ionicons/icons";
 import './PasswordChange.css'
+import {useHistory} from "react-router-dom";
 
 interface PasswordChangeValues {
     password: string;
@@ -37,6 +38,7 @@ const PasswordChange: FunctionComponent = () => {
     const [passwordSecure, setPasswordSecure] = useState<boolean>(true)
     const [newPassword, setNewPassword] = useState<boolean>(true)
     const [repeatPassword, setRepeatPassword] = useState<boolean>(true)
+    const history = useHistory();
 
 
     setLocale({
@@ -55,7 +57,7 @@ const PasswordChange: FunctionComponent = () => {
         newPassword: yup.string().required(),
         newPasswordRepeat: yup.string().required(),
     })
-    const {control, errors, handleSubmit} = useForm<PasswordChangeValues>({
+    const {control, errors, handleSubmit, reset} = useForm<PasswordChangeValues>({
         resolver: yupResolver(validationSchema),
         defaultValues: {
             password: '',
@@ -70,7 +72,8 @@ const PasswordChange: FunctionComponent = () => {
             newPassword: data.newPasswordRepeat,
         })
             .then(() => {
-                toast.success("Su contraseña ha sido actualizada exitosamente.")
+                reset({password:'',newPasswordRepeat:'',newPassword:''})
+                toast.success("Su contraseña ha sido actualizada exitosamente.");
             })
             .catch((error) => {
                 if (error?.response?.data?.message) {
@@ -99,7 +102,7 @@ const PasswordChange: FunctionComponent = () => {
                 </IonCardHeader>
                 <IonCardContent>
                     <IonItem>
-                        <IonLabel position="stacked">Ingresa tu contraseña</IonLabel>
+                        <IonLabel position="stacked">Ingresa tu actual contraseña</IonLabel>
                         <Controller
                             name='password'
                             control={control}

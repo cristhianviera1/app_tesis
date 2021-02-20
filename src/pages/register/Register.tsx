@@ -12,6 +12,7 @@ import {
     IonInput,
     IonItem,
     IonLabel,
+    IonPage,
     IonSelect,
     IonSelectOption,
     IonSpinner,
@@ -65,7 +66,7 @@ const Register: FunctionComponent = () => {
 
     const onSubmit = (data: RegisterValues) => {
         setLoading(true)
-        axios.post(`${environment.apiUrl}/auth/register`, {
+        axios.post(`${environment.apiUrl}auth/register`, {
             name: data.name,
             surname: data.surname,
             email: data.email,
@@ -85,7 +86,7 @@ const Register: FunctionComponent = () => {
     }
 
     return (
-        <>
+        <IonPage>
             <IonHeader>
                 <IonToolbar>
                     <IonButtons slot="start">
@@ -93,7 +94,7 @@ const Register: FunctionComponent = () => {
                     </IonButtons>
                 </IonToolbar>
             </IonHeader>
-            <IonCard style={{textAlign: 'cen|ter'}}>
+            <IonCard style={{textAlign: 'center'}}>
                 <IonCardHeader>
                     <IonCardTitle>Registrate</IonCardTitle>
                 </IonCardHeader>
@@ -106,8 +107,7 @@ const Register: FunctionComponent = () => {
                             render={({onChange, value}) => (
                                 <IonInput
                                     value={value}
-                                    className="input-register"
-                                    type={'email'}
+                                    autoCapitalize={'words'}
                                     onIonChange={(e) => onChange(e.detail.value)}/>
                             )}
                         />
@@ -121,9 +121,7 @@ const Register: FunctionComponent = () => {
                             render={({onChange, value}) => (
                                 <IonInput
                                     value={value}
-                                    autoCapitalize={'on'}
-                                    className="input-register"
-                                    type={'email'}
+                                    autoCapitalize={'words'}
                                     onIonChange={(e) => onChange(e.detail.value)}/>
                             )}
                         />
@@ -138,7 +136,6 @@ const Register: FunctionComponent = () => {
                                 <IonInput
                                     value={value}
                                     autoCapitalize={'off'}
-                                    className="input-register"
                                     type={'email'}
                                     inputMode={'email'}
                                     onIonChange={(e) => onChange(e.detail.value)}/>
@@ -153,7 +150,7 @@ const Register: FunctionComponent = () => {
                             control={control}
                             render={({onChange, value}) => (
                                 <IonSelect value={value} onIonChange={e => onChange(e.detail.value)}>
-                                    <IonSelectOption value="men">Hombre</IonSelectOption>
+                                    <IonSelectOption value="man">Hombre</IonSelectOption>
                                     <IonSelectOption value="woman">Mujer</IonSelectOption>
                                     <IonSelectOption value="other">Otro</IonSelectOption>
                                 </IonSelect>
@@ -187,7 +184,7 @@ const Register: FunctionComponent = () => {
                 </IonButton>
             </IonCard>
             <ToastContainer/>
-        </>
+        </IonPage>
     );
 };
 

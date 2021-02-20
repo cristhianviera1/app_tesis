@@ -20,7 +20,6 @@ const Newness: FunctionComponent = () => {
         setLoading(false)
         axiosConfig().get('newness')
             .then(({data}) => {
-                console.log(data);
                 setNewness(data.map((newness: any) => ({
                     title: newness.title,
                     image: newness.image,
