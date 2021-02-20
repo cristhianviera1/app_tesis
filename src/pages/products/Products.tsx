@@ -8,6 +8,7 @@ import {
     IonRefresher,
     IonRefresherContent,
     IonSearchbar,
+    IonSpinner,
     IonToolbar
 } from '@ionic/react';
 import './Products.css';
@@ -30,7 +31,7 @@ const Products: FunctionComponent = () => {
     const [searchText, setSearchText] = useState('');
     const [loading, setLoading] = useState<boolean>(false)
     const [products, setProducts] = useState<ProductCard[]>([]);
-    const [globalState, globalActions] = useGlobal();
+    const [globalState] = useGlobal();
     const [totalProducts, setTotalProducts] = useState<number>(0)
     const history = useHistory();
 
@@ -64,11 +65,9 @@ const Products: FunctionComponent = () => {
         <Layout>
             <IonHeader>
                 <IonToolbar>
-                    <IonSearchbar placeholder='Buscar productos' value={searchText} onIonChange={e => {
-                        products?.filter((product) => {
-                            product.name.includes(e.detail.value!)
-                        })
-                    }} showCancelButton="focus" cancelButtonText="Cancelar"/>
+                    <IonSearchbar placeholder='Buscar productos' value={searchText}
+                                  onIonChange={e => setSearchText(e.detail.value!)} showCancelButton="focus"
+                                  cancelButtonText="Cancelar"/>
                     <IonButton onClick={() => history.push('/cart')} slot="end" fill="clear">
                         <IonIcon slot="icon-only" icon={cartOutline}/>
                         {
@@ -86,24 +85,34 @@ const Products: FunctionComponent = () => {
 
             </IonHeader>
             <IonContent fullscreen>
+                {loading &&
+                <div style={{textAlign: 'center'}}>
+                    <IonSpinner name="lines" style={{marginLeft: 'auto', marginRight: 'auto', marginTop: '50%'}}/>
+                </div>
+                }
                 <IonRefresher slot="fixed" onIonRefresh={getProducts}>
                     <IonRefresherContent>
                     </IonRefresherContent>
                 </IonRefresher>
-                <div style={{marginBottom:'20%'}}>
-                {
-                    products?.map((product) =>
-                        <ProductsCard
-                            key={product._id}
-                            id={product._id}
-                            name={product.name}
-                            image={product.image}
-                            detail={product.detail.slice(0, 20)}
-                            price={product.price}
-                            quantity={0}
-                        />
-                    )
-                }
+                <div style={{marginBottom: '20%'}}>
+                    {
+                        products?.filter(product => {
+                            if (searchText !== '') {
+                                return product.name.toLowerCase().includes(searchText.toLocaleLowerCase());
+                            }
+                            return true;
+                        })?.map((product) =>
+                            <ProductsCard
+                                key={product._id}
+                                id={product._id}
+                                name={product.name}
+                                image={product.image}
+                                detail={product.detail.slice(0, 20)}
+                                price={product.price}
+                                quantity={0}
+                            />
+                        )
+                    }
                 </div>
             </IonContent>
         </Layout>

@@ -104,7 +104,7 @@ const Cart: FunctionComponent = () => {
                     onDidDismiss={() => setConfirmModal(false)}
                     header={'Confirmar compra'}
                     subHeader={'¿Deseas confirmar la compra?'}
-                    message={`El costo total de tu pedido es de ${totalAmount}. Un operador de la organización se contactará con usted para coordinar la entrega una vez que su comprobante de pago haya sido aprobado`}
+                    message={`El costo total de tu pedido es de ${totalAmount.toFixed(2)}. Un operador de la organización se contactará con usted para coordinar la entrega una vez que su comprobante de pago haya sido aprobado`}
                     buttons={[
                         {
                             text: 'Cancelar',

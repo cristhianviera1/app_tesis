@@ -74,58 +74,56 @@ const Login: FunctionComponent = () => {
     return (
         <IonPage>
             <IonContent style={{textAlign: 'center'}}>
-                <div style={{flexDirection:'column',display:'flex', justifyContent:'center', alignItems:'center'}}>
-                <img style={{height: '300px', width: '300px'}} src='assets/logo_circle.png' alt={'logo'}/>
-                <IonItem style={{width:'90%', marginLeft:'-5%'}}>
-                    <IonLabel position="floating">Email</IonLabel>
-                    <Controller
-                        name='email'
-                        control={control}
-                        render={({onChange, value}) => (
-                            <IonInput
-                                value={value}
-                                className="input-register"
-                                type={'email'}
-                                onIonChange={(e) => onChange(e.detail.value)}/>
-                        )}
-                    />
-                    <IonText color="danger">{errors && errors.email?.message}</IonText>
-                </IonItem>
-                    <IonItem style={{width:'90%'}}>
-                    <IonLabel position="floating">Contraseña</IonLabel>
-                    <Controller
-                        name='password'
-                        control={control}
-                        render={({onChange, value}) => (
-                            <IonRow style={{width: '100%'}}>
+                <div style={{flexDirection: 'column', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                    <img style={{height: '300px', width: '300px'}} src='assets/logo_circle.png' alt={'logo'}/>
+                    <IonItem style={{width: '90%'}}>
+                        <IonLabel position="floating">Email</IonLabel>
+                        <Controller
+                            name='email'
+                            control={control}
+                            render={({onChange, value}) => (
                                 <IonInput
                                     value={value}
-                                    className="input-register"
-                                    type={secureEntry ? 'password' : 'text'}
-                                    onIonChange={(e) => onChange(e.detail.value)}
-                                />
-                                <IonButton fill={'clear'} onClick={() => setSecureEntry(!secureEntry)}>
-                                    {
-                                        secureEntry ?
-                                            <IonIcon slot="icon-only" icon={eye}/> :
-                                            <IonIcon slot="icon-only" icon={eyeOff}/>
-                                    }
+                                    type={'email'}
+                                    onIonChange={(e) => onChange(e.detail.value)}/>
+                            )}
+                        />
+                        <IonText color="danger">{errors && errors.email?.message}</IonText>
+                    </IonItem>
+                    <IonItem style={{width: '90%'}}>
+                        <IonLabel position="floating">Contraseña</IonLabel>
+                        <Controller
+                            name='password'
+                            control={control}
+                            render={({onChange, value}) => (
+                                <IonRow style={{width: '100%'}}>
+                                    <IonInput
+                                        value={value}
+                                        type={secureEntry ? 'password' : 'text'}
+                                        onIonChange={(e) => onChange(e.detail.value)}
+                                    />
+                                    <IonButton fill={'clear'} onClick={() => setSecureEntry(!secureEntry)}>
+                                        {
+                                            secureEntry ?
+                                                <IonIcon slot="icon-only" icon={eye}/> :
+                                                <IonIcon slot="icon-only" icon={eyeOff}/>
+                                        }
 
-                                </IonButton>
-                            </IonRow>
-                        )}
-                    />
-                    <IonText color="danger">{errors && errors.password?.message}</IonText>
-                </IonItem>
-                {loginError && <IonText color="danger">{loginError}</IonText>}
-                <IonButton
-                    onClick={handleSubmit(onSubmit)}
-                    expand="block"
-                    style={{width:'90%'}}
-                    disabled={loading}
-                >
-                    {loading ? <IonSpinner name="lines"/> : "Iniciar Sesión"}
-                </IonButton>
+                                    </IonButton>
+                                </IonRow>
+                            )}
+                        />
+                        <IonText color="danger">{errors && errors.password?.message}</IonText>
+                    </IonItem>
+                    {loginError && <IonText color="danger">{loginError}</IonText>}
+                    <IonButton
+                        onClick={handleSubmit(onSubmit)}
+                        expand="block"
+                        style={{width: '90%'}}
+                        disabled={loading}
+                    >
+                        {loading ? <IonSpinner name="lines"/> : "Iniciar Sesión"}
+                    </IonButton>
                 </div>
                 <IonFooter style={{paddingTop: '30px'}}>
                     ¿No tienes una cuenta?<a onClick={() => history.push('/register')}>{" Registrarse"}</a>

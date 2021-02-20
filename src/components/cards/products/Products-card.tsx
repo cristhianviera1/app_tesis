@@ -29,7 +29,7 @@ const ProductsCard: FunctionComponent<ProductsCardInfo> = ({id, name, image, det
             className={"product-card"}
         >
             <IonCardHeader onClick={() => history.push('/productDetail', id)}>
-                <img width="100%" height="100%" src={image}/>
+                <img width="100%" height="100%" src={image} style={{borderTopLeftRadius:'5%', borderTopRightRadius:'5%'}}/>
                 <IonCardSubtitle>${price}</IonCardSubtitle>
                 <IonCardTitle>{name}</IonCardTitle>
             </IonCardHeader>

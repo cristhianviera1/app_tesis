@@ -101,7 +101,7 @@ const MyShopping: FunctionComponent = () => {
             </IonHeader>
             <IonContent style={{textAlign: 'center'}}>
                 {loading &&
-                <IonSpinner name="lines" style={{marginLeft: 'auto', marginRight: 'auto', marginTop: '50%'}}/>
+                    <IonSpinner name="lines" style={{marginLeft: 'auto', marginRight: 'auto', marginTop: '50%'}}/>
                 }
                 {
                     !loading && myShopping?.map((cart, index) => (

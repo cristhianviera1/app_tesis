@@ -61,7 +61,7 @@ const MyShoppingCard: FunctionComponent<MyShoppingCardValues> = ({initialValues,
     const openCamera = () => {
         Camera.getPhoto({
             quality: 90,
-            allowEditing: true,
+            allowEditing: false,
             resultType: CameraResultType.Base64,
 
         }).then((image) => {
@@ -88,9 +88,12 @@ const MyShoppingCard: FunctionComponent<MyShoppingCardValues> = ({initialValues,
                     {'Estado del voucher: '}<IonText color={color?.color}> {color.status}</IonText>
                 </IonCardSubtitle>
                 {voucher?.image &&
-                <img src={voucher.image} alt={'Comprobante'} width={'100px'} height={'130px'}
-                     style={{borderRadius: '10%'}}
-                     onClick={() => setViewerImage(true)}/>}
+                <div style={{width: '100%'}}>
+                    <img src={voucher.image} alt={'Comprobante'} width={'100px'} height={'130px'}
+                         style={{borderRadius: '10%', marginTop:'2%'}}
+                         onClick={() => setViewerImage(true)}/>
+                </div>
+                }
                 <IonButton fill={'clear'} onClick={() => setShowProducts(!showProducts)}>
                     {showProducts ? "Ocultar productos " : "Mostrar Productos"}
                     {
@@ -138,7 +141,7 @@ const MyShoppingCard: FunctionComponent<MyShoppingCardValues> = ({initialValues,
             {
                 voucher.statuses[voucher.statuses.length - 1].status === "pendiente comprobante" &&
                 <IonButton disabled={loading} className={"btn"} expand={"block"} onClick={() => openCamera()}>
-                    {loading ? <IonSpinner name="lines"/> : <IonText>Subir foto de comprobante de pago</IonText>}
+                    {loading ? <IonSpinner name="lines"/> : <IonText style={{fontSize:'12px'}}>Subir foto de comprobante de pago</IonText>}
                 </IonButton>
             }
             <Viewer
