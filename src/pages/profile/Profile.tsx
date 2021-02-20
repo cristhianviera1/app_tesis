@@ -20,7 +20,7 @@ import {cameraOutline, logInOutline, repeatOutline, storefrontOutline} from 'ion
 import * as localStorage from "local-storage";
 import {axiosConfig} from "../../components/helpers/axiosConfig";
 import {CameraResultType, Plugins} from '@capacitor/core';
-import {toast, ToastContainer} from "react-toastify";
+import {toast} from "react-toastify";
 import {useHistory} from "react-router-dom";
 
 const {Camera} = Plugins;
@@ -104,7 +104,10 @@ const Profile: FunctionComponent = () => {
                         <IonIcon slot="end" icon={storefrontOutline}/>
                     </IonItem>
                     <br/>
-                    <IonItem color="primary" button={true} onClick={() => histoy.push('/login')}
+                    <IonItem color="primary" button={true} onClick={() => {
+                        histoy.push('/login')
+                        localStorage.clear();
+                    }}
                              style={{borderRadius: '15px'}}>
                         <IonLabel>Cerrar sesión</IonLabel>
                         <IonIcon slot="end" icon={logInOutline}/>

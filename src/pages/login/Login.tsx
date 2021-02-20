@@ -1,4 +1,4 @@
-import React, {FunctionComponent, useState} from "react";
+import React, {FunctionComponent, useEffect, useState} from "react";
 import {
     IonButton,
     IonContent,
@@ -70,6 +70,12 @@ const Login: FunctionComponent = () => {
             })
             .finally(() => setLoading(false))
     }
+
+    useEffect(()=>{
+        if(localStorage.get('token')){
+            history.push('/products')
+        }
+    },[])
 
     return (
         <IonPage>

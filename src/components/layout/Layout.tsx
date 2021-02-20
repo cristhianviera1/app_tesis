@@ -1,9 +1,17 @@
-import React, {FunctionComponent} from "react";
+import React, {FunctionComponent, useEffect} from "react";
 import {IonPage} from "@ionic/react";
 import Footer from "../footer/Footer";
-import {ToastContainer} from "react-toastify";
+import * as localStorage from 'local-storage';
+import {useHistory} from "react-router-dom";
 
 const Layout: FunctionComponent = ({children}) => {
+    const history = useHistory();
+
+    useEffect(()=>{
+        if(!localStorage.get('token')){
+            history.push('/login')
+        }
+    },[])
 
     return (
         <IonPage>
