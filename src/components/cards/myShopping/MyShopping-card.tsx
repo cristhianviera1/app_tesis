@@ -143,6 +143,11 @@ const MyShoppingCard: FunctionComponent<MyShoppingCardValues> = ({initialValues,
                 <IonButton disabled={loading} className={"btn"} expand={"block"} onClick={() => openCamera()}>
                     {loading ? <IonSpinner name="lines"/> : <IonText style={{fontSize:'12px'}}>Subir foto de comprobante de pago</IonText>}
                 </IonButton>
+            }{
+                voucher.statuses[voucher.statuses.length - 1].status === "denegado" &&
+                <IonButton disabled={loading} className={"btn"} expand={"block"} onClick={() => openCamera()}>
+                    {loading ? <IonSpinner name="lines"/> : <IonText style={{fontSize:'12px'}}>Subir foto de comprobante de pago</IonText>}
+                </IonButton>
             }
             <Viewer
                 visible={viewerImage}

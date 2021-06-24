@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="io.ionic.starter"
-    android:versionCode="1"
-    android:versionName="1.0" >
+    package="com.it.kimirina.app"
+    android:versionCode="2"
+    android:versionName="1.0.1" >
 
     <uses-sdk
         android:minSdkVersion="21"
@@ -45,7 +45,7 @@
 
         <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="io.ionic.starter.fileprovider"
+            android:authorities="com.it.kimirina.app.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true" >
             <meta-data
@@ -59,7 +59,7 @@
 
         <provider
             android:name="com.squareup.picasso.PicassoProvider"
-            android:authorities="io.ionic.starter.com.squareup.picasso"
+            android:authorities="com.it.kimirina.app.com.squareup.picasso"
             android:exported="false" />
 
         <service
@@ -131,7 +131,7 @@
 
         <provider
             android:name="com.google.firebase.provider.FirebaseInitProvider"
-            android:authorities="io.ionic.starter.firebaseinitprovider"
+            android:authorities="com.it.kimirina.app.firebaseinitprovider"
             android:exported="false"
             android:initOrder="100" />
 

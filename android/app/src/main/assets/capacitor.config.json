@@ -4,7 +4,7 @@
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "build",
-  "linuxAndroidStudioPath": "/home/gabriel/Programas/android-studio/bin/studio.sh",
+  "linuxAndroidStudioPath": "/home/gabriel/Programas/AndroidStudio/bin/studio.sh",
   "plugins": {
     "SplashScreen": {
       "launchShowDuration": 0

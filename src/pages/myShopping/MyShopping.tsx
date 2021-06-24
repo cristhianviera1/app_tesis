@@ -1,6 +1,14 @@
 import React, {FunctionComponent, useEffect, useState} from "react";
 import Layout from "../../components/layout/Layout";
-import {IonBackButton, IonButtons, IonContent, IonHeader, IonSpinner, IonToolbar} from "@ionic/react";
+import {
+    IonBackButton,
+    IonButtons,
+    IonContent,
+    IonHeader, IonRefresher,
+    IonRefresherContent,
+    IonSpinner,
+    IonToolbar
+} from "@ionic/react";
 import {axiosConfig} from "../../components/helpers/axiosConfig";
 import {ProductsCardInfo} from "../../components/cards/products/Products-card";
 import MyShoppingCard from "../../components/cards/myShopping/MyShopping-card";
@@ -35,7 +43,7 @@ const MyShopping: FunctionComponent = () => {
     const [loading, setLoading] = useState<boolean>(false)
     const [myShopping, setMyShopping] = useState<MyShoppingValue[]>()
 
-    const getMyShopping = () => {
+    const getMyShopping = (event?: CustomEvent) => {
         if (window !== undefined) {
             setLoading(true)
             axiosConfig().get('shopping-carts/me')
@@ -56,15 +64,16 @@ const MyShopping: FunctionComponent = () => {
                 .catch(() => {
 
                 })
-                .finally(() => setLoading(false))
+                .finally(() => {
+                    setLoading(false);
+                    event?.detail?.complete();
+                })
         }
     }
 
     useEffect(() => {
-        if (!myShopping) {
-            getMyShopping();
-        }
-    }, [myShopping])
+        getMyShopping();
+    }, [])
 
     if (myShopping && myShopping?.length <= 0 && !loading) {
         return (
@@ -77,6 +86,10 @@ const MyShopping: FunctionComponent = () => {
                     </IonToolbar>
                 </IonHeader>
                 <IonContent>
+                    <IonRefresher slot="fixed" onIonRefresh={getMyShopping}>
+                        <IonRefresherContent>
+                        </IonRefresherContent>
+                    </IonRefresher>
                     <div style={{
                         'position': 'absolute',
                         'left': '50%',
@@ -100,6 +113,10 @@ const MyShopping: FunctionComponent = () => {
                 </IonToolbar>
             </IonHeader>
             <IonContent style={{textAlign: 'center'}}>
+                <IonRefresher slot="fixed" onIonRefresh={getMyShopping}>
+                    <IonRefresherContent>
+                    </IonRefresherContent>
+                </IonRefresher>
                 {loading &&
                     <IonSpinner name="lines" style={{marginLeft: 'auto', marginRight: 'auto', marginTop: '50%'}}/>
                 }

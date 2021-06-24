@@ -1,8 +1,8 @@
 1<?xml version="1.0" encoding="utf-8"?>
 2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-3    package="io.ionic.starter"
-4    android:versionCode="1"
-5    android:versionName="1.0" >
+3    package="com.it.kimirina.app"
+4    android:versionCode="2"
+5    android:versionName="1.0.1" >
 6
 7    <uses-sdk
 8        android:minSdkVersion="21"
@@ -84,7 +84,7 @@
 46        <provider
 47            android:name="androidx.core.content.FileProvider"
 47-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:25:13-62
-48            android:authorities="io.ionic.starter.fileprovider"
+48            android:authorities="com.it.kimirina.app.fileprovider"
 48-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:26:13-64
 49            android:exported="false"
 49-->/home/gabriel/Documentos/Tesis/app_tesis/android/app/src/main/AndroidManifest.xml:27:13-37
@@ -106,13 +106,13 @@
 58-->[:capacitor-cordova-android-plugins] /home/gabriel/Documentos/Tesis/app_tesis/android/capacitor-cordova-android-plugins/build/intermediates/library_manifest/debug/AndroidManifest.xml:19:13-77
 59
 60        <provider
-60-->[com.squareup.picasso:picasso:2.71828] /home/gabriel/.gradle/caches/transforms-2/files-2.1/5ced6532673070918ee74b8a3ec37233/jetified-picasso-2.71828/AndroidManifest.xml:8:9-11:40
+60-->[com.squareup.picasso:picasso:2.71828] /home/gabriel/.gradle/caches/transforms-2/files-2.1/bca44078c65ddeeadc53567b116b90c9/jetified-picasso-2.71828/AndroidManifest.xml:8:9-11:40
 61            android:name="com.squareup.picasso.PicassoProvider"
-61-->[com.squareup.picasso:picasso:2.71828] /home/gabriel/.gradle/caches/transforms-2/files-2.1/5ced6532673070918ee74b8a3ec37233/jetified-picasso-2.71828/AndroidManifest.xml:9:13-64
-62            android:authorities="io.ionic.starter.com.squareup.picasso"
-62-->[com.squareup.picasso:picasso:2.71828] /home/gabriel/.gradle/caches/transforms-2/files-2.1/5ced6532673070918ee74b8a3ec37233/jetified-picasso-2.71828/AndroidManifest.xml:10:13-72
+61-->[com.squareup.picasso:picasso:2.71828] /home/gabriel/.gradle/caches/transforms-2/files-2.1/bca44078c65ddeeadc53567b116b90c9/jetified-picasso-2.71828/AndroidManifest.xml:9:13-64
+62            android:authorities="com.it.kimirina.app.com.squareup.picasso"
+62-->[com.squareup.picasso:picasso:2.71828] /home/gabriel/.gradle/caches/transforms-2/files-2.1/bca44078c65ddeeadc53567b116b90c9/jetified-picasso-2.71828/AndroidManifest.xml:10:13-72
 63            android:exported="false" />
-63-->[com.squareup.picasso:picasso:2.71828] /home/gabriel/.gradle/caches/transforms-2/files-2.1/5ced6532673070918ee74b8a3ec37233/jetified-picasso-2.71828/AndroidManifest.xml:11:13-37
+63-->[com.squareup.picasso:picasso:2.71828] /home/gabriel/.gradle/caches/transforms-2/files-2.1/bca44078c65ddeeadc53567b116b90c9/jetified-picasso-2.71828/AndroidManifest.xml:11:13-37
 64
 65        <service
 65-->[:capacitor-android] /home/gabriel/Documentos/Tesis/app_tesis/node_modules/@capacitor/android/capacitor/build/intermediates/library_manifest/debug/AndroidManifest.xml:19:9-21:40
@@ -241,7 +241,7 @@
 132-->[com.google.firebase:firebase-common:19.3.0] /home/gabriel/.gradle/caches/transforms-2/files-2.1/1b23a58bb1c539c2a19df1b0920c32b5/jetified-firebase-common-19.3.0/AndroidManifest.xml:26:9-30:39
 133            android:name="com.google.firebase.provider.FirebaseInitProvider"
 133-->[com.google.firebase:firebase-common:19.3.0] /home/gabriel/.gradle/caches/transforms-2/files-2.1/1b23a58bb1c539c2a19df1b0920c32b5/jetified-firebase-common-19.3.0/AndroidManifest.xml:27:13-77
-134            android:authorities="io.ionic.starter.firebaseinitprovider"
+134            android:authorities="com.it.kimirina.app.firebaseinitprovider"
 134-->[com.google.firebase:firebase-common:19.3.0] /home/gabriel/.gradle/caches/transforms-2/files-2.1/1b23a58bb1c539c2a19df1b0920c32b5/jetified-firebase-common-19.3.0/AndroidManifest.xml:28:13-72
 135            android:exported="false"
 135-->[com.google.firebase:firebase-common:19.3.0] /home/gabriel/.gradle/caches/transforms-2/files-2.1/1b23a58bb1c539c2a19df1b0920c32b5/jetified-firebase-common-19.3.0/AndroidManifest.xml:29:13-37
